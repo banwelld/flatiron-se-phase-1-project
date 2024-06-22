@@ -67,14 +67,18 @@ function main() {
 			
 			this.archBtn = document.createElement('div');
 			this.archBtn.id = `entry_archive_btn_${entryObj.id}`;
-			this.archBtn.className = 'entry_delete_btn';
+			this.archBtn.className = 'entry_archive_btn';
 			this.archBtn.title = !entryObj.isArch ? 'Archive this entry' : 'Restore this entry to the journal';
 			this.archBtn.addEventListener('click', () => {
 				const updArr = [['isArch', !entryObj.isArch]];
 				if (!entryObj.isArch) updArr.push(['isAccent', false]);
 				pushUpdate(new updateObj(this.entry.id, updArr));
 				const targetNode = document.getElementById(this.entry.id);
-				targetNode.style.backgroundColor = '#606060';
+				if (!entryObj.isArch) {
+					targetNode.classList.add('archived');
+				} else {
+					targetNode.classList.replace('archived', 'highlight');
+				}
 				setTimeout(() => targetNode.style.opacity = 0, 100);
 				setTimeout(() => targetNode.remove(), 300);
 			});
@@ -87,8 +91,8 @@ function main() {
 			this.editBtn.title = 'Edit this entry';
 			this.editBtn.addEventListener('click', (event) => {
 				openEntryForm(event);
-				const titleField = document.getElementById('new_entry_title');
-				const contentField = document.getElementById('new_entry');
+				const titleField = document.getElementById('entry_form_title');
+				const contentField = document.getElementById('entry_form_content');
 				const content = document.getElementById(this.entry.id).querySelector('.entry_content').innerText;
 				titleField.value = entryObj.title;
 				contentField.value = content;
@@ -214,8 +218,8 @@ function main() {
 	}
 
 	function showErrorCallout() {
-		const btnBar = document.getElementById('entry_form_btn_bar');
-		btnBar.appendChild(buildErrorCallout());
+		const contStack = document.getElementById('control_stack form');
+		contStack.appendChild(buildErrorCallout());
 		const errCall = document.getElementById('error_callout');
 		setTimeout(() => errCall.style.opacity = 1, 50);
 	}
@@ -227,8 +231,8 @@ function main() {
 	}
 
 	function handlePublishReq() {
-		const entryTitle = document.getElementById('new_entry_title').value;
-		const entryBody = document.getElementById('new_entry').value;
+		const entryTitle = document.getElementById('entry_form_title').value;
+		const entryBody = document.getElementById('entry_form_content').value;
 		switch (entryTitle === '') {
 			case true:
 				showErrorCallout();
@@ -300,16 +304,16 @@ function main() {
 		const entryForm = document.createElement('div');
 		entryForm.id = 'entry_form_container';
 	
-		// build entry form button bar
+		// build entry form control stack
 
-		const btnBar = document.createElement('div');
-		btnBar.className = 'btn_bar';
-		btnBar.id = 'entry_form_btn_bar';
+		const contStack = document.createElement('div');
+		contStack.className = 'control_stack form';
+		contStack.id = 'control_stack form';
 
 		// build discard button
 
 		const discardEntryBtn = document.createElement('div');
-		discardEntryBtn.className = 'btn_bar_item';
+		discardEntryBtn.className = 'control form';
 		discardEntryBtn.id = `discard_${formAction.toLowerCase()}_btn`;
 		discardEntryBtn.textContent = `Discard ${formAction}`;
 		discardEntryBtn.addEventListener('click', closeEntryForm);
@@ -317,7 +321,7 @@ function main() {
 		// build publish button
 
 		const publishEntryBtn = document.createElement('div');
-		publishEntryBtn.className = 'btn_bar_item';
+		publishEntryBtn.className = 'control form';
 		publishEntryBtn.id = `publish_${formAction.toLowerCase()}_btn`;
 		publishEntryBtn.textContent = `Publish ${formAction}`;
 		switch (editMode) {
@@ -328,14 +332,16 @@ function main() {
 			case true:
 				console.log('You have chosen wisely')
 				publishEntryBtn.addEventListener('click', () => {
-					const editTitle = document.getElementById('new_entry_title').value;
-					const editContent = formatEntryContent(document.getElementById('new_entry').value);
+					const editTitle = document.getElementById('entry_form_title').value;
+					const editContent = formatEntryContent(document.getElementById('entry_form_content').value);
 					const updArr = [['title', editTitle], ['content', editContent]];
 					const entry = event.target.parentElement.parentElement.parentElement;
 					entry.querySelector('.entry_title').textContent = editTitle;
 					entry.querySelector('.entry_content').innerHTML = editContent;
 					pushUpdate(new updateObj(entry.id, updArr));
 					closeEntryForm();
+					entry.classList.add('highlight')
+					setTimeout(() => entry.classList.remove('highlight'), 200);
 				});
 		}
 	
@@ -348,23 +354,23 @@ function main() {
 
 		const entryTitle = document.createElement('input');
 		entryTitle.type = 'text';
-		entryTitle.id = 'new_entry_title';
+		entryTitle.id = 'entry_form_title';
 		entryTitle.placeholder = 'Type your journal title here...';
 		entryTitle.autofocus = true;
 
 		// build entry content textarea
 
 		const entryContent = document.createElement('textarea');
-		entryContent.id = 'new_entry';
+		entryContent.id = 'entry_form_content';
 		entryContent.placeholder = 'Type your journal entry here...';
 		
 		// assemble entry form
 
 		inputArea.appendChild(entryTitle);
 		inputArea.appendChild(entryContent);
-		btnBar.appendChild(publishEntryBtn);
-		btnBar.appendChild(discardEntryBtn);
-		entryForm.appendChild(btnBar);
+		contStack.appendChild(publishEntryBtn);
+		contStack.appendChild(discardEntryBtn);
+		entryForm.appendChild(contStack);
 		entryForm.appendChild(inputArea);
 	
 		return entryForm;
@@ -376,7 +382,7 @@ function main() {
 
 		const errCont = document.createElement('div');
 		errCont.id = 'error_callout';
-		errCont.backgroundImage = 'url(./errCallout.png)';
+		errCont.backgroundImage = 'url(./images/errCallout.png)';
 
 		// build error text container
 

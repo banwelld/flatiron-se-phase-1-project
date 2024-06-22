@@ -57,16 +57,27 @@ main {
 }
 
 .control_stack {
+  display: flex;
+}
+
+.control_stack.page {
   position: absolute;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   top: 10px;
   right: calc(5% - 19px);
   height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
-.entry_control {
+.control_stack.form {
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.control.page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,23 +94,23 @@ main {
   opacity: 0.6;
 }
 
-.entry_control:hover {
+.control.page:hover {
   opacity: 1;
 }
 
 #new_entry_btn {
-  background-image: url(./newEntry.png);
+  background-image: url(./images/newEntry.png);
 }
 
 #view_archive_btn {
-  background-image: url(./archView.png);
+  background-image: url(./images/archView.png);
 }
 
 #view_active_btn {
-  background-image: url(./archExit.png);
+  background-image: url(./images/archExit.png);
 }
 
-.btn_bar {
+.control_stack.form {
   height: 50px;
   display: flex;
   justify-content: flex-end;
@@ -107,7 +118,7 @@ main {
   background-color: darkmagenta;
 }
 
-.btn_bar_item {
+.control.form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -120,7 +131,7 @@ main {
   transition: background-color 0.3s ease;
 }
 
-.btn_bar_item:hover {
+.control.form:hover {
   background-color: #BB00BB;
   cursor: pointer;
   user-select: none;
@@ -128,6 +139,7 @@ main {
   -moz-user-select: none;
   -ms-user-select: none;
 }
+
 #view_active_btn {
   display: none;
 }
@@ -164,7 +176,7 @@ main {
   flex-grow: 1;
 }
 
-#new_entry_title, #new_entry {
+#entry_form_title, #entry_form_content {
   font-size: 16px;
   font-family: Helvetica;
   color: white;
@@ -173,16 +185,16 @@ main {
   resize: none;
 }
 
-#new_entry_title:focus, #new_entry:focus {
+#entry_form_title:focus, #entry_form_content:focus {
   background-color: #606060;
   outline: 1px solid darkmagenta;
 }
 
-#new_entry {
+#entry_form_content {
   flex-grow: 1;
 }
 
-#new_entry_title {
+#entry_form_title {
   height: 30px;
 }
 
@@ -221,6 +233,10 @@ main {
   background-color: #303030;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
   transition: background-color 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.entry.highlight {
+  background-color: #606060;
 }
 
 .entry.accent {
@@ -290,7 +306,7 @@ p.entry_content {
   justify-content: flex-end;
   z-index: 55;
   transition: opacity 0.2s ease;
-  background-image: url(./errCallout.png);
+  background-image: url(./images/errCallout.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -333,19 +349,19 @@ p.entry_content {
 }
 
 .entry_star_btn {
-  background-image: url(./starDim.png);
+  background-image: url(./images/starDim.png);
 }
 
 .entry_edit_btn {
-  background-image: url(./editPencil.png);
+  background-image: url(./images/editPencil.png);
 }
 
-.entry_delete_btn {
-  background-image: url(./archRemove.png);
+.entry_archive_btn {
+  background-image: url(./images/archRemove.png);
 }
 
 div.accent .entry_star_btn {
-  background-image: url(./starBright.png);
+  background-image: url(./images/starBright.png);
   filter: drop-shadow(0px 0px 5px rgba(239, 237, 214, 0.735));
   opacity: 1;
 }
@@ -354,11 +370,11 @@ div.accent .entry_star_btn {
   display: none;
 }
 
-div.archived .entry_delete_btn {
-  background-image: url(./archRestore.png);
+div.archived .entry_archive_btn {
+  background-image: url(./images/archRestore.png);
   opacity: 0.2;
 }
 
-div.archived .entry_delete_btn:hover {
+div.archived .entry_archive_btn:hover {
   opacity: 0.7;
 }

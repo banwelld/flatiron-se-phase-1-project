@@ -511,19 +511,19 @@
       "content": "<p class=\"entry_content\">We have a form...</p>",
       "pubTs": "2024-06-20T02:49:19.576Z",
       "isAccent": false,
-      "isArch": true,
+      "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T03:02:39.946Z"
+      "lupdTs": "2024-06-22T21:03:35.395Z"
     },
     {
       "id": "38ac",
       "title": "Doo Dee Doo Dee Doo",
-      "content": "<p class=\"entry_content\">Let's see if the paragraph functionality is working still...</p><p class=\"entry_content\">Hopefully I didn't fuck everything up too badly when I changed the functionality. But I really think the new way is quite a bit better.</p><p class=\"entry_content\">I'm REALLY hoping not returning anything does exactly what I think it does.</p>",
+      "content": "<p class=\"entry_content noIndent\">Let's see if the paragraph functionality is working still...</p><p class=\"entry_content noIndent\">Hopefully I didn't fuck everything up too badly when I changed the functionality. But I really think the new way is quite a bit better.</p><p class=\"entry_content noIndent\">I'm REALLY hoping not returning anything does exactly what I think it does.</p>",
       "pubTs": "2024-06-20T04:30:16.073Z",
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T01:51:45.070Z"
+      "lupdTs": "2024-06-22T20:41:56.651Z"
     },
     {
       "id": "427c",
@@ -543,17 +543,17 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T17:28:12.435Z"
+      "lupdTs": "2024-06-22T20:43:10.283Z"
     },
     {
       "id": "cb0b",
       "title": "OK lets try this again",
-      "content": "<p class=\"entry_content noIndent\">My entry contains</p><p class=\"entry_content indent\">SO</p><p class=\"entry_content indent\">MANY</p><p class=\"entry_content indent\">GODDAMNED</p><p class=\"entry_content indent\">THINGS</p><p class=\"entry_content noIndent\">I just hope it doesn't catch inline-hyphenated words.</p>",
+      "content": "<p class=\"entry_content noIndent\">My entry contains</p><p class=\"entry_content noIndent\">SO</p><p class=\"entry_content noIndent\">MANY</p><p class=\"entry_content noIndent\">GODDAMNED</p><p class=\"entry_content noIndent\">THINGS</p><p class=\"entry_content noIndent\">I just hope it doesn't catch inline-hyphenated words.</p>",
       "pubTs": "2024-06-20T23:00:33.324Z",
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T01:51:43.667Z"
+      "lupdTs": "2024-06-22T20:43:03.585Z"
     },
     {
       "id": "1192",
@@ -561,19 +561,19 @@
       "content": "<p class=\"entry_content noIndent\">My entry contains</p><p class=\"entry_content noIndent\"> SO</p><p class=\"entry_content noIndent\"> MANY</p><p class=\"entry_content noIndent\"> GODDAMNED</p><p class=\"entry_content noIndent\"> THINGS</p><p class=\"entry_content noIndent\">I just hope it doesn't catch inline hyphenated words.</p>",
       "pubTs": "2024-06-20T23:01:46.721Z",
       "isAccent": false,
-      "isArch": true,
+      "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T03:02:37.313Z"
+      "lupdTs": "2024-06-22T20:43:02.238Z"
     },
     {
       "id": "2a1b",
       "title": "OK lets try this again",
       "content": "<p class=\"entry_content noIndent\">My entry contains</p><p class=\"entry_content noIndent\"> SO</p><p class=\"entry_content noIndent\"> MANY motherfucking</p><p class=\"entry_content noIndent\"> GODDAMNED</p><p class=\"entry_content noIndent\"> THINGS</p><p class=\"entry_content noIndent\">FUUUUUUUUCK!!</p>",
       "pubTs": "2024-06-20T23:03:00.580Z",
-      "isAccent": true,
+      "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T15:17:05.522Z"
+      "lupdTs": "2024-06-22T20:43:01.568Z"
     },
     {
       "id": "d535",
@@ -583,7 +583,7 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T17:27:01.668Z"
+      "lupdTs": "2024-06-22T20:43:00.885Z"
     },
     {
       "id": "8c84",
@@ -591,9 +591,9 @@
       "content": "<p class=\"entry_content noIndent\">This is all very precious.</p><p class=\"entry_content noIndent\">On second thought, it's much better than that. It's fantastic!!</p>",
       "pubTs": "2024-06-21T01:01:34.256Z",
       "isAccent": false,
-      "isArch": true,
+      "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T17:26:41.368Z"
+      "lupdTs": "2024-06-22T20:43:00.167Z"
     },
     {
       "id": "d7de",
@@ -601,9 +601,9 @@
       "content": "<p class=\"entry_content noIndent\">WooHoo!! Fucking Right!!!!</p>",
       "pubTs": "2024-06-21T01:26:23.142Z",
       "isAccent": false,
-      "isArch": true,
+      "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T03:02:35.056Z"
+      "lupdTs": "2024-06-22T20:42:59.405Z"
     },
     {
       "id": "1aee",
@@ -613,17 +613,17 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-22T17:49:10.058Z"
+      "lupdTs": "2024-06-22T20:42:58.583Z"
     },
     {
       "id": "d3c7",
       "title": "Here's a new entry",
       "content": "<p class=\"entry_content noIndent\">With the new entry form logic. I'm going to be SO stoked about this!!</p>",
       "pubTs": "2024-06-21T17:02:31.359Z",
-      "isAccent": true,
+      "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T17:08:32.737Z"
+      "lupdTs": "2024-06-22T20:42:57.866Z"
     },
     {
       "id": "bfb7",
@@ -633,7 +633,7 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T17:26:25.401Z"
+      "lupdTs": "2024-06-22T21:03:24.029Z"
     },
     {
       "id": "e21a",
@@ -641,9 +641,19 @@
       "content": "<p class=\"entry_content noIndent\">New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry</p>",
       "pubTs": "2024-06-21T17:27:43.935Z",
       "isAccent": false,
-      "isArch": true,
+      "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-22T18:22:08.498Z"
+      "lupdTs": "2024-06-22T20:52:30.765Z"
+    },
+    {
+      "id": "8b98",
+      "title": "First entry in the new directory",
+      "content": "<p class=\"entry_content noIndent\">Here it is!</p>",
+      "pubTs": "2024-06-22T20:22:16.563Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-22T21:03:34.494Z"
     }
   ]
 }
