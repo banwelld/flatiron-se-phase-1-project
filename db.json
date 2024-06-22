@@ -1,0 +1,649 @@
+{
+  "journalEntries": [
+    {
+      "id": "a816",
+      "title": "Here goes nothing!!",
+      "content": "<p class=\"entry_content\">This could be my first-ever journal entry transmitted over a network.</p>",
+      "pubTs": "2024/05/20 @ 09:27 pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:13.361Z"
+    },
+    {
+      "id": "4a41",
+      "title": "OK... Third time's a charm...",
+      "content": "<p class=\"entry_content\">Here's my third attempt at pushing a journal entry to the server.</p>",
+      "pubTs": "2024/05/20 @ 09:30 pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:12.739Z"
+    },
+    {
+      "id": "0f3d",
+      "title": "Let's fuck something up here",
+      "content": "<p class=\"entry_content\">The first of those examples will reference the first instance of a UL node in the ordered_list class. The second example will reference - prepare yourself - the first LI element within the first UL element within the first LI element within the UL element with the ID contact_phone_numbers that also contains a UL that contains a LI. Here's how that looks in code:</p><p class=\"entry_content\"></p><p class=\"entry_content_indent\"><content></p><p class=\"entry_content_indent\">  <div></p><p class=\"entry_content_indent\">    <ul id=\"contact_phone_numbers\">\t\t// here's our starting point</p><p class=\"entry_content_indent\">      <li>1</li>\t// doesn't contain a UL, so no go</p><p class=\"entry_content_indent\">      <li></p><p class=\"entry_content_indent\">        <div>\t// contains a UL and a LI, so this is it!</p><p class=\"entry_content_indent\">          <ul></p><p class=\"entry_content_indent\">            <li>2</li>\t// our target!</p><p class=\"entry_content_indent\">          </ul></p><p class=\"entry_content_indent\">        </div></p><p class=\"entry_content_indent\">      </li></p><p class=\"entry_content_indent\">      <li>3</li></p><p class=\"entry_content_indent\">    </ul></p><p class=\"entry_content_indent\">  </div></p><p class=\"entry_content_indent\"></content></p><p class=\"entry_content\"></p><p class=\"entry_content\">The cool thing about this is that there are no class names or IDs this deep into a list, but we can still search for it in reference to its proximity to its nearest labeled node.</p><p class=\"entry_content\"></p><p class=\"entry_content\">Lastly on searching (selecting) shit in the DOM, there's also a document.querySelectorAll method that will return a node list like the document.getElement(s) methods.</p><p class=\"entry_content\"></p><p class=\"entry_content\">Once you've found your DOM element, you can do work on it with JS by modifying its innterText, textContent, or innerHTML properties. the innerText property represents all text within the node that is visible (not hidden) to the user of the website. textContent represents ALL text - even hidden stuff. innerHTML is the real game changer in that it allows you to replace the HTML within a node. Sometimes that might just be the text that appears onscreen. Other times, it may be an entire screen element. This one takes savvy so as not to mess shit up. And, if the HTML is being changed based on user input, it's best to limit it to hard-coded values that are selectable rather than allowing the user to submit their own change. A savvy user might realize that they could pass HTML code as their submission and mess up a site.</p><p class=\"entry_content\"></p><p class=\"entry_content\">At the highest level, when interacting with servers, our \"requests\" will take the form of one of the maiin HTTP verbs: GET, POST, PATCH/PUT, or DELETE. We sometimes see the acronym CRUD as a mnemonic for these verbs. IT stands for CREATE (POST), READ (GET), UPDATE (PATCH/PUT), DESTROY (DELETE).</p><p class=\"entry_content\"></p><p class=\"entry_content\">All HTTP verba:</p><p class=\"entry_content\"></p><p class=\"entry_content\">GET      Retrieves a representation of a resource</p><p class=\"entry_content_indent\">POST Create a new resource using data in the content of the request</p><p class=\"entry_content_indent\">PUT     Update an existing resource using data in the content of the request</p><p class=\"entry_content_indent\">PATCH Update part of an existing resource using data in the content of the request</p><p class=\"entry_content_indent\">DELETE Deletes a specific resource</p><p class=\"entry_content_indent\">HEAD Asks for a response (like a GET but without the content)</p><p class=\"entry_content_indent\">TRACE Echoes back the received request</p><p class=\"entry_content_indent\">OPTIONS Returns the HTTP methods the server supports</p><p class=\"entry_content_indent\">CONNECT Converts the request to a TCP/IP tunnel (generally for SSL)</p><p class=\"entry_content\"></p>",
+      "pubTs": "2024/05/20 @ 09:57 pm",
+      "isAccent": false,
+      "isArch": true,
+      "updLog": {},
+      "lupdTs": "2024-06-21T03:03:06.190Z"
+    },
+    {
+      "id": "e866",
+      "title": "Everything is coming up ROSES!",
+      "content": "<p class=\"entry_content\">This is fantastic and everything is working optimally, at the moment!</p>",
+      "pubTs": "2024/05/20 @ 10:57 pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:11.447Z"
+    },
+    {
+      "id": "f2df",
+      "title": "Everything works well still",
+      "content": "Seems to be doing all that it should.\n\nI don't love that the formatting function isn't engaged but we'll figure it out.",
+      "pubTs": "2024/06/08 @ 6:17pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:10.856Z"
+    },
+    {
+      "id": "160c",
+      "title": "Checking out the formatting",
+      "content": "<p class=\"entry_content\">Let's see if it works as well as it should.</p><p class=\"entry_content\"></p><p class=\"entry_content\">Hopefully it all comes together.</p><p class=\"entry_content\">Seeing if spacing is an issue.</p><p class=\"entry_content\"></p><p class=\"entry_content\"></p>",
+      "pubTs": "2024/06/08 @ 6:38pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:10.279Z"
+    },
+    {
+      "id": "e11c",
+      "title": "This shouldn't allow blanks",
+      "content": "<p class=\"entry_content\">This shouldn't allow poor formatting</p><p class=\"entry_content\"></p><p class=\"entry_content\">In the following function, you can see that I have elements representing the entry title and entry datestamp, and entry content, as well as entry header and entry. The entry title and datestamp always go into the entry header. The entry header and content always go into the entry. This is a structure that will be built every time someone inputs text on my website. Is there a way to leverage object classes to create a class that would build a new instance of this entire structure, and populate it with the data passed to it so that I don't have to run this entire function every time the submit button is pressed?</p><p class=\"entry_content\"></p><p class=\"entry_content_indent\">function renderJournalEntry(entryObj) {</p><p class=\"entry_content_indent\">let entry = document.createElement('div');</p><p class=\"entry_content_indent\">entry.className = 'journal_entry';</p><p class=\"entry_content\"></p><p class=\"entry_content_indent\">let entryHeader = document.createElement('div');</p><p class=\"entry_content_indent\">entryHeader.className = \"entry_header\";</p><p class=\"entry_content\"></p><p class=\"entry_content_indent\">let entryTitle = document.createElement('h2');</p><p class=\"entry_content_indent\">entryTitle.className = 'entry_title';</p><p class=\"entry_content_indent\">entryTitle.innerText = entryObj.title;</p><p class=\"entry_content\"></p><p class=\"entry_content_indent\">let entryDatestamp = document.createElement('p');</p><p class=\"entry_content_indent\">entryDatestamp.className = 'entry_datestamp';</p><p class=\"entry_content_indent\">entryDatestamp.innerText = entryObj.entryDate;</p><p class=\"entry_content\"></p><p class=\"entry_content_indent\">let entryContent = document.createElement('div');</p><p class=\"entry_content_indent\">entryContent.className = \"entry_content\";</p><p class=\"entry_content_indent\">entryContent.innerHTML = entryObj.entry;</p><p class=\"entry_content\"></p><p class=\"entry_content_indent\">entryHeader.appendChild(entryTitle);</p><p class=\"entry_content_indent\">entryHeader.appendChild(entryDatestamp);</p><p class=\"entry_content_indent\">entry.appendChild(entryHeader);</p><p class=\"entry_content_indent\">entry.appendChild(entryContent);</p><p class=\"entry_content\">ChatGPT</p><p class=\"entry_content\">Yes, you can leverage object-oriented programming in JavaScript to create a class that represents your journal entry structure. Here's how you can create such a class:</p><p class=\"entry_content\"></p><p class=\"entry_content\">javascript</p><p class=\"entry_content\">Copy code</p><p class=\"entry_content\">class JournalEntry {</p><p class=\"entry_content\">  constructor(entryObj) {</p><p class=\"entry_content\">    this.entry = document.createElement('div');</p><p class=\"entry_content\">    this.entry.className = 'journal_entry';</p><p class=\"entry_content\"></p><p class=\"entry_content\">    this.entryHeader = document.createElement('div');</p><p class=\"entry_content\">    this.entryHeader.className = 'entry_header';</p><p class=\"entry_content\"></p><p class=\"entry_content\">    this.entryTitle = document.createElement('h2');</p><p class=\"entry_content\">    this.entryTitle.className = 'entry_title';</p><p class=\"entry_content\">    this.entryTitle.innerText = entryObj.title;</p><p class=\"entry_content\"></p><p class=\"entry_content\">    this.entryDatestamp = document.createElement('p');</p><p class=\"entry_content\">    this.entryDatestamp.className = 'entry_datestamp';</p><p class=\"entry_content\">    this.entryDatestamp.innerText = entryObj.entryDate;</p><p class=\"entry_content\"></p><p class=\"entry_content\">    this.entryContent = document.createElement('div');</p><p class=\"entry_content\">    this.entryContent.className = 'entry_content';</p><p class=\"entry_content\">    this.entryContent.innerHTML = entryObj.entry;</p><p class=\"entry_content\"></p><p class=\"entry_content\">    this.entryHeader.appendChild(this.entryTitle);</p><p class=\"entry_content\">    this.entryHeader.appendChild(this.entryDatestamp);</p><p class=\"entry_content\">    this.entry.appendChild(this.entryHeader);</p><p class=\"entry_content\">    this.entry.appendChild(this.entryContent);</p><p class=\"entry_content\">  }</p><p class=\"entry_content\"></p><p class=\"entry_content\">  render() {</p><p class=\"entry_content\">    return this.entry;</p><p class=\"entry_content\">  }</p><p class=\"entry_content\">}</p><p class=\"entry_content\"></p>",
+      "pubTs": "2024/06/08 @ 6:40pm",
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:09.692Z",
+      "isAccent": false
+    },
+    {
+      "id": "361e",
+      "title": "",
+      "content": "<p class=\"entry_content\"></p>",
+      "pubTs": "2024/06/09 @ 3:31pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:09.084Z"
+    },
+    {
+      "id": "5ee6",
+      "title": "",
+      "content": "<p class=\"entry_content\"></p>",
+      "pubTs": "2024/06/09 @ 3:31pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:08.567Z"
+    },
+    {
+      "id": "8a8b",
+      "title": "Seeing what works and what doesn't",
+      "content": "<p class=\"entry_content\">Hmm... This is interesting, so far.</p>",
+      "pubTs": "2024/06/09 @ 4:02pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:07.975Z"
+    },
+    {
+      "id": "1954",
+      "title": "",
+      "content": "<p class=\"entry_content\"></p>",
+      "pubTs": "2024/06/09 @ 4:07pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:07.391Z"
+    },
+    {
+      "id": "dd6e",
+      "title": "",
+      "content": "<p class=\"entry_content\"></p>",
+      "pubTs": "2024/06/09 @ 4:09pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:06.751Z"
+    },
+    {
+      "id": "1625",
+      "title": "Does publishing work?",
+      "content": "<p class=\"entry_content\">Let's test it and find out!</p>",
+      "pubTs": "2024/06/09 @ 4:38pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:06.206Z"
+    },
+    {
+      "id": "8645",
+      "title": "Does discarding work?",
+      "content": "<p class=\"entry_content\">No. No it doesn't.</p>",
+      "pubTs": "2024/06/09 @ 4:39pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:05.682Z"
+    },
+    {
+      "id": "5b23",
+      "title": "f",
+      "content": "<p class=\"entry_content\">f</p>",
+      "pubTs": "2024/06/09 @ 5:11pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:05.116Z"
+    },
+    {
+      "id": "85d6",
+      "title": "",
+      "content": "<p class=\"entry_content\"></p>",
+      "pubTs": "2024/06/09 @ 7:30pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:04.475Z"
+    },
+    {
+      "id": "89c7",
+      "title": "",
+      "content": "<p class=\"entry_content\"></p>",
+      "pubTs": "2024/06/09 @ 7:32pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:03.917Z"
+    },
+    {
+      "id": "09a1",
+      "title": "",
+      "content": "<p class=\"entry_content\"></p>",
+      "pubTs": "2024/06/09 @ 7:33pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:03.378Z"
+    },
+    {
+      "id": "eaaf",
+      "title": "",
+      "content": "<p class=\"entry_content\"></p>",
+      "pubTs": "2024/06/09 @ 7:34pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:02.817Z"
+    },
+    {
+      "id": "f3e3",
+      "title": "Just a regular entry",
+      "content": "<p class=\"entry_content\">Here it is.</p>",
+      "pubTs": "2024/06/09 @ 7:58pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:02.236Z"
+    },
+    {
+      "id": "37ae",
+      "title": "Testing",
+      "content": "<p class=\"entry_content\">1...2..3...</p>",
+      "pubTs": "2024-06-10T00:21:13.680Z",
+      "isAccent": false,
+      "isArch": true,
+      "updLog": {},
+      "lupdTs": "2024-06-21T15:43:42.942Z"
+    },
+    {
+      "id": "ef3c",
+      "title": "Maybe?",
+      "content": "<p class=\"entry_content\">IIFE for the win</p>",
+      "pubTs": "2024-06-10T00:21:13.680Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:00.993Z"
+    },
+    {
+      "id": "6541",
+      "title": "Let's verify",
+      "content": "<p class=\"entry_content\">Yes?</p>",
+      "pubTs": "2024-06-10T00:22:21.262Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:52:00.384Z"
+    },
+    {
+      "id": "8660",
+      "title": "fuck",
+      "content": "<p class=\"entry_content\">me</p>",
+      "pubTs": "2024 / 06 / 09 @ 9:02p.m.",
+      "isAccent": false,
+      "isArch": true,
+      "updLog": {},
+      "lupdTs": "2024-06-21T03:02:44.685Z"
+    },
+    {
+      "id": "6281",
+      "title": "fuck",
+      "content": "<p class=\"entry_content\">me again</p><p class=\"entry_content\"></p>",
+      "pubTs": "2024 / 06 / 09 @ 9:04pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:59.292Z"
+    },
+    {
+      "id": "d54d",
+      "title": "Here's my entry for today!",
+      "content": "<p class=\"entry_content\">This is today's entry text. Look at how texty it is!!</p>",
+      "pubTs": "2024 / 06 / 10 @ 5:27pm",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:58.774Z"
+    },
+    {
+      "id": "4d71",
+      "title": "Does it all work?",
+      "content": "<p class=\"entry_content\">Let's find out.</p>",
+      "pubTs": "2024-06-10T22:50:18.997Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:58.254Z"
+    },
+    {
+      "id": "33a3",
+      "title": "Checking out the formatting",
+      "content": "<p class=\"entry_content\"></p>",
+      "pubTs": "2024-06-11T00:00:45.881Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:57.715Z"
+    },
+    {
+      "id": "a173",
+      "title": "Here's an entry",
+      "content": "<p class=\"entry_content\">This is the text of an entry.</p>",
+      "pubTs": "2024-06-12T04:41:36.049Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:57.177Z"
+    },
+    {
+      "id": "0d9e",
+      "title": "This shouldn't allow blanks",
+      "content": "<p class=\"entry_content\">Oh good, it doesn't. :D</p>",
+      "pubTs": "2024-06-12T05:02:39.699Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:56.658Z"
+    },
+    {
+      "id": "afb2",
+      "title": "I can't even believe it",
+      "content": "<p class=\"entry_content\">I know I've only scratched the surface of web design, and I know it's been a long LONG time coming... But, like, this is really setting in. I'm really learning. I'm really developing. I've literally built the beginnings of what Facebook must have been, at one point. And - granted - it's not original. But Damn bitch!! I've got a journal that put's Dougie Howser's to shame. So fuck him!! Fuck him in his dirty, dirty ass!! Happy Pride!! :D</p>",
+      "pubTs": "2024-06-13T04:05:49.013Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:56.168Z"
+    },
+    {
+      "id": "df7f",
+      "title": "Will it work here?",
+      "content": "<p class=\"entry_content\">Let's see if new entries get a sun back.</p>",
+      "pubTs": "2024-06-17T00:28:43.889Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:55.629Z"
+    },
+    {
+      "id": "383c",
+      "title": "Let's try this again...",
+      "content": "<p class=\"entry_content\">Will it work?</p>",
+      "pubTs": "2024-06-17T02:09:23.569Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:55.096Z"
+    },
+    {
+      "id": "1ef8",
+      "title": "I wonder if it takes a new entry...",
+      "content": "<p class=\"entry_content\">Let's see if this incites a change of class name.</p><p class=\"entry_content\"></p><p class=\"entry_content\"></p><p class=\"entry_content\"></p><p class=\"entry_content\"></p><p class=\"entry_content\">Let's also see if we get only one space here.</p>",
+      "pubTs": "2024-06-18T02:10:23.487Z",
+      "isAccent": true,
+      "updLog": {},
+      "lupdTs": "2024-06-19T02:49:33.185Z"
+    },
+    {
+      "id": "8625",
+      "title": "FINALLY!!",
+      "content": "<p class=\"entry_content\">Finally the highlight button works as expected!!</p>",
+      "pubTs": "2024-06-18T03:12:16.571Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:54.550Z"
+    },
+    {
+      "id": "68c9",
+      "title": "What's going on here?",
+      "content": "<p class=\"entry_content\">It looks like there's a problem where highlighting a new entry is ephemeral until a refresh.</p>",
+      "pubTs": "2024-06-18T03:13:23.757Z",
+      "isAccent": true,
+      "updLog": {},
+      "lupdTs": "2024-06-19T02:49:30.518Z"
+    },
+    {
+      "id": "210e",
+      "title": "Hmmm....",
+      "content": "<p class=\"entry_content\">This is weird.</p>",
+      "pubTs": "2024-06-18T03:13:56.325Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:54.061Z"
+    },
+    {
+      "id": "2276",
+      "title": "Interesting...",
+      "content": "<p class=\"entry_content\">Let's see if the ephemeral like makes it to the DB.JSON file.</p>",
+      "pubTs": "2024-06-18T03:15:00.976Z",
+      "isAccent": true,
+      "updLog": {},
+      "lupdTs": "2024-06-19T02:49:24.466Z"
+    },
+    {
+      "id": "fda2",
+      "title": "Will the entries double???",
+      "content": "<p class=\"entry_content\">Only time will tell.</p>",
+      "pubTs": "2024-06-18T03:26:25.937Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:53.507Z"
+    },
+    {
+      "id": "e00a",
+      "title": "Fingers crossed...",
+      "content": "<p class=\"entry_content\">Hope!!</p>",
+      "pubTs": "2024-06-18T03:32:33.438Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:53.012Z"
+    },
+    {
+      "id": "1e7c",
+      "title": "IDK...",
+      "content": "<p class=\"entry_content\">kfwlkjeflqkjweflkwqjelfqkfjqlwekfjlwq</p>",
+      "pubTs": "2024-06-18T03:42:11.510Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:52.474Z"
+    },
+    {
+      "id": "2338",
+      "title": "IDK...",
+      "content": "<p class=\"entry_content\">kfwlkjeflqkjweflkwqjelfqkfjqlwekfjlwq</p>",
+      "pubTs": "2024-06-18T03:42:13.783Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:51.969Z"
+    },
+    {
+      "id": "a043",
+      "title": "Hopefully this works...",
+      "content": "<p class=\"entry_content\">It should render from the permanent object rather than the ephemeral one.</p>",
+      "pubTs": "2024-06-18T03:47:01.227Z",
+      "isAccent": true,
+      "updLog": {},
+      "lupdTs": "2024-06-19T02:41:12.915Z"
+    },
+    {
+      "id": "37c0",
+      "title": "Let's see how a multi-paragraph entry does now...",
+      "content": "<p class=\"entry_content\">Here's one paragraph. It should take up one P tag. When I hit enter, no matter how many times, empty P tags shouldn't be saved now.</p><p class=\"entry_content\"></p><p class=\"entry_content\">Here's an example of a new paragraph. Before, we would have seen an empty P tag between these. Hopefully that doesn't happen now.</p><p class=\"entry_content\"></p><p class=\"entry_content\"></p><p class=\"entry_content\"></p><p class=\"entry_content\"></p><p class=\"entry_content\"></p><p class=\"entry_content\"></p><p class=\"entry_content\">Here's a ridiculously spaced paragraph to test this shit out. Hopefully it works.</p>",
+      "pubTs": "2024-06-18T06:25:15.250Z",
+      "isAccent": false,
+      "isArch": false,
+      "lupdTs": "2024-06-21T01:51:51.488Z",
+      "updLog": {}
+    },
+    {
+      "id": "c73a",
+      "title": "Trying this again",
+      "content": "<p class=\"entry_content\">Paragraph 1.</p><p class=\"entry_content\"></p><p class=\"entry_content\"></p><p class=\"entry_content\">Paragraph 2.</p><p class=\"entry_content\"></p><p class=\"entry_content\"></p><p class=\"entry_content\"></p><p class=\"entry_content\"></p><p class=\"entry_content\">Paragraph 3.</p>",
+      "pubTs": "2024-06-18T06:28:11.681Z",
+      "isAccent": true,
+      "updLog": {},
+      "lupdTs": "2024-06-19T00:59:34.983Z"
+    },
+    {
+      "id": "6b89",
+      "title": "That didn't work",
+      "content": "<p class=\"entry_content\">P1</p><p class=\"entry_content\">P2</p><p class=\"entry_content\">P3</p><p class=\"entry_content\">P4</p>",
+      "pubTs": "2024-06-18T06:29:04.333Z",
+      "isAccent": false,
+      "isArch": false,
+      "lupdTs": "2024-06-21T01:51:49.321Z",
+      "updLog": {}
+    },
+    {
+      "id": "f42c",
+      "title": "Will it work with real paragraphs",
+      "content": "<p class=\"entry_content\">Let's see if this works with paragraphs that are quite long. I hope it does.</p><p class=\"entry_content\">Here, I've just added a new paragraph. It SHOULD remove the node that would have been created between them, before.</p><p class=\"entry_content\">This one is really far down. Let's see if it ends up being spaced properly in the obj.</p>",
+      "pubTs": "2024-06-18T06:33:03.087Z",
+      "isAccent": false,
+      "isArch": false,
+      "lupdTs": "2024-06-21T01:51:48.730Z",
+      "updLog": {}
+    },
+    {
+      "id": "628a",
+      "title": "Hopefully this works...",
+      "content": "<p class=\"entry_content\">Functionality has changed. Just testing to see if I fucked it up.</p>",
+      "pubTs": "2024-06-18T18:41:54.521Z",
+      "isAccent": false,
+      "isArch": false,
+      "lupdTs": "2024-06-21T01:51:48.023Z",
+      "updLog": {}
+    },
+    {
+      "id": "99c5",
+      "title": "Let's see if this works properly",
+      "content": "<p class=\"entry_content\">If so, we can get rid of one of the div layers!</p>",
+      "pubTs": "2024-06-20T00:31:37.356Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:47.490Z"
+    },
+    {
+      "id": "8d58",
+      "title": "Will this work even without the actual form?",
+      "content": "<p class=\"entry_content\">If so, I'll be very happy about it!</p>",
+      "pubTs": "2024-06-20T00:42:39.784Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:47.011Z"
+    },
+    {
+      "id": "b6b5",
+      "title": "Will this publish an entry?",
+      "content": "<p class=\"entry_content\">Let's see...</p>",
+      "pubTs": "2024-06-20T01:40:15.748Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:46.471Z"
+    },
+    {
+      "id": "7388",
+      "title": "OK This is interesting",
+      "content": "<p class=\"entry_content\">We have a form...</p>",
+      "pubTs": "2024-06-20T02:49:19.576Z",
+      "isAccent": false,
+      "isArch": true,
+      "updLog": {},
+      "lupdTs": "2024-06-21T03:02:39.946Z"
+    },
+    {
+      "id": "38ac",
+      "title": "Doo Dee Doo Dee Doo",
+      "content": "<p class=\"entry_content\">Let's see if the paragraph functionality is working still...</p><p class=\"entry_content\">Hopefully I didn't fuck everything up too badly when I changed the functionality. But I really think the new way is quite a bit better.</p><p class=\"entry_content\">I'm REALLY hoping not returning anything does exactly what I think it does.</p>",
+      "pubTs": "2024-06-20T04:30:16.073Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:45.070Z"
+    },
+    {
+      "id": "427c",
+      "title": "Let's see...",
+      "content": "<p class=\"entry_content\">If it works</p>",
+      "pubTs": "2024-06-20T08:30:26.091Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:44.635Z"
+    },
+    {
+      "id": "86cf",
+      "title": "Is this functionality working",
+      "content": "<p class=\"entry_content noIndent\">Just trying to determine if everything got put back together correctly.</p><p class=\"entry_content noIndent\">I'll bet this has it!!</p>",
+      "pubTs": "2024-06-20T18:50:45.132Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T17:28:12.435Z"
+    },
+    {
+      "id": "cb0b",
+      "title": "OK lets try this again",
+      "content": "<p class=\"entry_content noIndent\">My entry contains</p><p class=\"entry_content indent\">SO</p><p class=\"entry_content indent\">MANY</p><p class=\"entry_content indent\">GODDAMNED</p><p class=\"entry_content indent\">THINGS</p><p class=\"entry_content noIndent\">I just hope it doesn't catch inline-hyphenated words.</p>",
+      "pubTs": "2024-06-20T23:00:33.324Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T01:51:43.667Z"
+    },
+    {
+      "id": "1192",
+      "title": "OK lets try this again",
+      "content": "<p class=\"entry_content noIndent\">My entry contains</p><p class=\"entry_content noIndent\"> SO</p><p class=\"entry_content noIndent\"> MANY</p><p class=\"entry_content noIndent\"> GODDAMNED</p><p class=\"entry_content noIndent\"> THINGS</p><p class=\"entry_content noIndent\">I just hope it doesn't catch inline hyphenated words.</p>",
+      "pubTs": "2024-06-20T23:01:46.721Z",
+      "isAccent": false,
+      "isArch": true,
+      "updLog": {},
+      "lupdTs": "2024-06-21T03:02:37.313Z"
+    },
+    {
+      "id": "2a1b",
+      "title": "OK lets try this again",
+      "content": "<p class=\"entry_content noIndent\">My entry contains</p><p class=\"entry_content noIndent\"> SO</p><p class=\"entry_content noIndent\"> MANY motherfucking</p><p class=\"entry_content noIndent\"> GODDAMNED</p><p class=\"entry_content noIndent\"> THINGS</p><p class=\"entry_content noIndent\">FUUUUUUUUCK!!</p>",
+      "pubTs": "2024-06-20T23:03:00.580Z",
+      "isAccent": true,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T15:17:05.522Z"
+    },
+    {
+      "id": "d535",
+      "title": "Why did it create three entries?",
+      "content": "<p class=\"entry_content noIndent\">Let's see if it does it again. That was really weird.</p><p class=\"entry_content noIndent\">Will it do this shit again?</p>",
+      "pubTs": "2024-06-20T23:04:41.353Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T17:27:01.668Z"
+    },
+    {
+      "id": "8c84",
+      "title": "OK lets try this again",
+      "content": "<p class=\"entry_content noIndent\">This is all very precious.</p><p class=\"entry_content noIndent\">On second thought, it's much better than that. It's fantastic!!</p>",
+      "pubTs": "2024-06-21T01:01:34.256Z",
+      "isAccent": false,
+      "isArch": true,
+      "updLog": {},
+      "lupdTs": "2024-06-21T17:26:41.368Z"
+    },
+    {
+      "id": "d7de",
+      "title": "Will this work??",
+      "content": "<p class=\"entry_content noIndent\">WooHoo!! Fucking Right!!!!</p>",
+      "pubTs": "2024-06-21T01:26:23.142Z",
+      "isAccent": false,
+      "isArch": true,
+      "updLog": {},
+      "lupdTs": "2024-06-21T03:02:35.056Z"
+    },
+    {
+      "id": "1aee",
+      "title": "OK lets try this again",
+      "content": "<p class=\"entry_content noIndent\">This is all very precious.</p><p class=\"entry_content noIndent\">On second thought, it's much better than that. It's fantastic!!</p><p class=\"entry_content noIndent\">Holy fuck, will this work?</p>",
+      "pubTs": "2024-06-21T17:01:41.479Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-22T17:49:10.058Z"
+    },
+    {
+      "id": "d3c7",
+      "title": "Here's a new entry",
+      "content": "<p class=\"entry_content noIndent\">With the new entry form logic. I'm going to be SO stoked about this!!</p>",
+      "pubTs": "2024-06-21T17:02:31.359Z",
+      "isAccent": true,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T17:08:32.737Z"
+    },
+    {
+      "id": "bfb7",
+      "title": "Why did it create three entries?",
+      "content": "<p class=\"entry_content noIndent\">Let's see if it does it again. That was really weird.</p><p class=\"entry_content noIndent\">It did it because it did it, you twat!</p>",
+      "pubTs": "2024-06-21T17:19:59.698Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-21T17:26:25.401Z"
+    },
+    {
+      "id": "e21a",
+      "title": "This will be a new entry",
+      "content": "<p class=\"entry_content noIndent\">New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry New entry</p>",
+      "pubTs": "2024-06-21T17:27:43.935Z",
+      "isAccent": false,
+      "isArch": true,
+      "updLog": {},
+      "lupdTs": "2024-06-22T18:22:08.498Z"
+    }
+  ]
+}
