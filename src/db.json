@@ -26,9 +26,9 @@
       "content": "<p class=\"entry_content\">The first of those examples will reference the first instance of a UL node in the ordered_list class. The second example will reference - prepare yourself - the first LI element within the first UL element within the first LI element within the UL element with the ID contact_phone_numbers that also contains a UL that contains a LI. Here's how that looks in code:</p><p class=\"entry_content\"></p><p class=\"entry_content_indent\"><content></p><p class=\"entry_content_indent\">  <div></p><p class=\"entry_content_indent\">    <ul id=\"contact_phone_numbers\">\t\t// here's our starting point</p><p class=\"entry_content_indent\">      <li>1</li>\t// doesn't contain a UL, so no go</p><p class=\"entry_content_indent\">      <li></p><p class=\"entry_content_indent\">        <div>\t// contains a UL and a LI, so this is it!</p><p class=\"entry_content_indent\">          <ul></p><p class=\"entry_content_indent\">            <li>2</li>\t// our target!</p><p class=\"entry_content_indent\">          </ul></p><p class=\"entry_content_indent\">        </div></p><p class=\"entry_content_indent\">      </li></p><p class=\"entry_content_indent\">      <li>3</li></p><p class=\"entry_content_indent\">    </ul></p><p class=\"entry_content_indent\">  </div></p><p class=\"entry_content_indent\"></content></p><p class=\"entry_content\"></p><p class=\"entry_content\">The cool thing about this is that there are no class names or IDs this deep into a list, but we can still search for it in reference to its proximity to its nearest labeled node.</p><p class=\"entry_content\"></p><p class=\"entry_content\">Lastly on searching (selecting) shit in the DOM, there's also a document.querySelectorAll method that will return a node list like the document.getElement(s) methods.</p><p class=\"entry_content\"></p><p class=\"entry_content\">Once you've found your DOM element, you can do work on it with JS by modifying its innterText, textContent, or innerHTML properties. the innerText property represents all text within the node that is visible (not hidden) to the user of the website. textContent represents ALL text - even hidden stuff. innerHTML is the real game changer in that it allows you to replace the HTML within a node. Sometimes that might just be the text that appears onscreen. Other times, it may be an entire screen element. This one takes savvy so as not to mess shit up. And, if the HTML is being changed based on user input, it's best to limit it to hard-coded values that are selectable rather than allowing the user to submit their own change. A savvy user might realize that they could pass HTML code as their submission and mess up a site.</p><p class=\"entry_content\"></p><p class=\"entry_content\">At the highest level, when interacting with servers, our \"requests\" will take the form of one of the maiin HTTP verbs: GET, POST, PATCH/PUT, or DELETE. We sometimes see the acronym CRUD as a mnemonic for these verbs. IT stands for CREATE (POST), READ (GET), UPDATE (PATCH/PUT), DESTROY (DELETE).</p><p class=\"entry_content\"></p><p class=\"entry_content\">All HTTP verba:</p><p class=\"entry_content\"></p><p class=\"entry_content\">GET      Retrieves a representation of a resource</p><p class=\"entry_content_indent\">POST Create a new resource using data in the content of the request</p><p class=\"entry_content_indent\">PUT     Update an existing resource using data in the content of the request</p><p class=\"entry_content_indent\">PATCH Update part of an existing resource using data in the content of the request</p><p class=\"entry_content_indent\">DELETE Deletes a specific resource</p><p class=\"entry_content_indent\">HEAD Asks for a response (like a GET but without the content)</p><p class=\"entry_content_indent\">TRACE Echoes back the received request</p><p class=\"entry_content_indent\">OPTIONS Returns the HTTP methods the server supports</p><p class=\"entry_content_indent\">CONNECT Converts the request to a TCP/IP tunnel (generally for SSL)</p><p class=\"entry_content\"></p>",
       "pubTs": "2024/05/20 @ 09:57 pm",
       "isAccent": false,
-      "isArch": true,
+      "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T03:03:06.190Z"
+      "lupdTs": "2024-06-23T17:46:50.493Z"
     },
     {
       "id": "e866",
@@ -206,9 +206,9 @@
       "content": "<p class=\"entry_content\">1...2..3...</p>",
       "pubTs": "2024-06-10T00:21:13.680Z",
       "isAccent": false,
-      "isArch": true,
+      "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T15:43:42.942Z"
+      "lupdTs": "2024-06-23T03:56:34.155Z"
     },
     {
       "id": "ef3c",
@@ -236,9 +236,9 @@
       "content": "<p class=\"entry_content\">me</p>",
       "pubTs": "2024 / 06 / 09 @ 9:02p.m.",
       "isAccent": false,
-      "isArch": true,
+      "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T03:02:44.685Z"
+      "lupdTs": "2024-06-23T03:56:27.122Z"
     },
     {
       "id": "6281",
@@ -653,7 +653,146 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-22T21:03:34.494Z"
+      "lupdTs": "2024-06-22T22:57:05.652Z"
+    },
+    {
+      "id": "3a15",
+      "title": "Here's an entry to test the ctrl + enter functionality",
+      "content": "<p class=\"entry_content noIndent\">Here's the entry!</p>",
+      "pubTs": "2024-06-22T23:38:29.240Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {}
+    },
+    {
+      "id": "9f3a",
+      "title": "Wait...",
+      "content": "<p class=\"entry_content noIndent\">That last one worked with the Command button!!</p>",
+      "pubTs": "2024-06-22T23:39:02.257Z",
+      "isAccent": false,
+      "isArch": true,
+      "updLog": {},
+      "lupdTs": "2024-06-23T18:05:47.412Z"
+    },
+    {
+      "id": "96db",
+      "title": "Um... That was weird...",
+      "content": "<p class=\"entry_content noIndent\">What will happen...</p>",
+      "pubTs": "2024-06-22T23:39:59.685Z",
+      "isAccent": false,
+      "isArch": true,
+      "updLog": {},
+      "lupdTs": "2024-06-23T18:11:04.412Z"
+    },
+    {
+      "id": "99c6",
+      "title": "This is just submitting on Enter alone...",
+      "content": "",
+      "pubTs": "2024-06-22T23:40:42.182Z",
+      "isAccent": false,
+      "isArch": true,
+      "updLog": {},
+      "lupdTs": "2024-06-23T17:50:55.641Z"
+    },
+    {
+      "id": "abf2",
+      "title": "Ok, well at least Enter doesn't trigger the submit process",
+      "content": "<p class=\"entry_content noIndent\">This seems promising.</p>",
+      "pubTs": "2024-06-22T23:56:15.462Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-23T19:44:01.293Z"
+    },
+    {
+      "id": "9aa5",
+      "title": "Here's a new entry to test the focus",
+      "content": "<p class=\"entry_content noIndent\">This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. </p>",
+      "pubTs": "2024-06-23T00:06:34.933Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-23T18:15:18.694Z"
+    },
+    {
+      "id": "b115",
+      "title": "Here's a new entry to test the focus",
+      "content": "<p class=\"entry_content noIndent\">This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. This is a new entry. </p>",
+      "pubTs": "2024-06-23T00:07:22.496Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-23T18:15:12.078Z"
+    },
+    {
+      "id": "6df3",
+      "title": "NewEntry",
+      "content": "<p class=\"entry_content noIndent\">This is an entry that will soon be edited.</p>",
+      "pubTs": "2024-06-23T00:15:11.432Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-23T18:15:02.994Z"
+    },
+    {
+      "id": "b963",
+      "title": "NewEntry",
+      "content": "<p class=\"entry_content noIndent\">This is an entry that will soon be edited.</p><p class=\"entry_content noIndent\">It wasn't good enough the first time.</p>",
+      "pubTs": "2024-06-23T00:15:32.023Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-23T19:44:00.543Z"
+    },
+    {
+      "id": "aa6d",
+      "title": "New Entry",
+      "content": "<p class=\"entry_content noIndent\">This is an entry</p>",
+      "pubTs": "2024-06-23T03:41:09.467Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-23T19:43:51.393Z"
+    },
+    {
+      "id": "add5",
+      "title": "This is a new entry ",
+      "content": "<p class=\"entry_content noIndent\">This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry This is a new entry</p>",
+      "pubTs": "2024-06-23T19:28:09.145Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-23T21:09:30.836Z"
+    },
+    {
+      "id": "ea78",
+      "title": "New Entry",
+      "content": "<p class=\"entry_content noIndent\">Let's see if this persists.</p>",
+      "pubTs": "2024-06-23T19:44:49.517Z",
+      "isAccent": true,
+      "isArch": false,
+      "updLog": {},
+      "lupdTs": "2024-06-24T00:48:18.638Z"
+    },
+    {
+      "id": "c05b",
+      "title": "Here's an entry to test everything.",
+      "content": "<p class=\"entry_content noIndent\">What the actual???</p><p class=\"entry_content noIndent\">I have no idea what's going on. I should not have fucked with my JSON file.</p>",
+      "pubTs": "2024-06-23T20:02:13.101Z",
+      "isAccent": false,
+      "isArch": true,
+      "updLog": {},
+      "lupdTs": "2024-06-23T20:03:02.119Z"
+    },
+    {
+      "id": "bfd9",
+      "title": "Here's an entry",
+      "content": "<p class=\"entry_content noIndent\">This is the content of an entry.</p>",
+      "pubTs": "2024-06-23T21:11:06.419Z",
+      "isAccent": false,
+      "isArch": true,
+      "updLog": {},
+      "lupdTs": "2024-06-24T00:40:00.884Z"
     }
   ]
 }

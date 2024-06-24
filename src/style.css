@@ -23,17 +23,21 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  background-color: darkmagenta;
   width: 100vw;
   height: 75px;
   transition: filter 0.2s ease;
+  box-shadow: rgba(32, 32, 32, 0.8) 0px 0px 10px;
+  z-index: 5;
 }
 
 .page_title {
   font-family: Helvetica;
+  color: #fff;
   font-size: 50px;
   padding: 10px;
   margin: 0;
-  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
 }
 
 main {
@@ -53,107 +57,90 @@ main {
   margin: 0px calc(20vw - 30px);
   flex: 1;
   overflow: hidden;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  box-shadow: rgba(0, 0, 0, 0.9) 0px 0px 15px;
 }
 
 .control_stack {
   display: flex;
+  position: absolute;
 }
 
 .control_stack.page {
-  position: absolute;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  top: 10px;
+  top: 20px;
   right: calc(5% - 19px);
-  height: 100px;
+  gap: 5px;
+  z-index: 10;
 }
 
 .control_stack.form {
-  height: 50px;
-  display: flex;
+  flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  height: 50px;
+  bottom: 12px;
+  right: 24px;
+  gap: 5px;
 }
 
-.control.page {
+.control {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 20;
-  height: 50px;
-  width: 50px;
-  cursor: pointer;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  transition: opacity 0.2s ease;
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.735));
+  transition: opacity 0.2s ease;
+}
+
+.control.page {
+  height: 50px;
+  width: 50px;
   opacity: 0.6;
 }
 
-.control.page:hover {
-  opacity: 1;
+.control.form {
+  height: 25px;
+  width: 25px;
+  opacity: 0.2;
+}
+
+.control:hover {
+  cursor: pointer;
+  opacity: 0.9;
 }
 
 #new_entry_btn {
   background-image: url(./images/newEntry.png);
 }
 
-#view_archive_btn {
-  background-image: url(./images/archView.png);
+#view_archived_btn:hover,
+#view_archived_btn.active,
+#new_entry_btn:hover {
+  opacity: 1;
+  filter: drop-shadow(0px 0px 10px rgba(239, 237, 214, 0.735));
 }
 
-#view_active_btn {
-  background-image: url(./images/archExit.png);
+#view_archived_btn {
+  background-image: url(./images/showArchOff.png);
 }
 
-.control_stack.form {
-  height: 50px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  background-color: darkmagenta;
+#view_accented_btn {
+  background-image: url(./images/showAccOff.png);
 }
 
-.control.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: inherit;
-  font-family: Helvetica;
-  font-size: 20px;
-  padding: 0 10px;
-  border-left: 0.5px solid white;
-  transition: background-color 0.3s ease;
+#view_accented_btn:hover,
+#view_accented_btn.active {
+  background-image: url(./images/showAccOn.png);
+  filter: drop-shadow(0px 0px 10px rgba(239, 237, 214, 0.735));
+  opacity: 1;
 }
 
-.control.form:hover {
-  background-color: #BB00BB;
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+#form_publish_btn {
+  background-image: url(./images/entryPublish.png);
 }
 
-#view_active_btn {
-  display: none;
-}
-
-#entry_form_stage {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0px;
-  top: 0px;
-  visibility: hidden;
-  opacity: 0%;
-  transition: opacity 0.2s ease;
-  z-index: 15;
+#form_discard_btn {
+  background-image: url(./images/entryCancel.png);
 }
 
 #entry_form_container {
@@ -162,10 +149,10 @@ main {
   display: flex;
   flex-direction: column;
   background-color: #404040;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
   opacity: 0%;
   transition: opacity 0.2s ease;
-  z-index: 50;
+  z-index: 12;
 }
 
 .entry_input {
@@ -176,7 +163,8 @@ main {
   flex-grow: 1;
 }
 
-#entry_form_title, #entry_form_content {
+#entry_form_title,
+#entry_form_content {
   font-size: 16px;
   font-family: Helvetica;
   color: white;
@@ -185,7 +173,12 @@ main {
   resize: none;
 }
 
-#entry_form_title:focus, #entry_form_content:focus {
+#entry_form_content {
+  padding-bottom: 60px;
+}
+
+#entry_form_title:focus,
+#entry_form_content:focus {
   background-color: #606060;
   outline: 1px solid darkmagenta;
 }
@@ -204,7 +197,6 @@ main {
   flex-direction: column;
   padding: 25px 11% 25px 5%;
   gap: 20px;
-  z-index: 9;
   overflow-y: scroll;
 }
 
@@ -231,12 +223,16 @@ main {
   font-family: Helvetica;
   text-align: left;
   background-color: #303030;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
   transition: background-color 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
 }
 
-.entry.highlight {
+.entry.restore {
   background-color: #606060;
+}
+
+.entry.remove {
+  background-color: #202020;
 }
 
 .entry.accent {
@@ -304,7 +300,7 @@ p.entry_content {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  z-index: 55;
+  z-index: 13;
   transition: opacity 0.2s ease;
   background-image: url(./images/errCallout.png);
   background-size: cover;
@@ -349,7 +345,7 @@ p.entry_content {
 }
 
 .entry_star_btn {
-  background-image: url(./images/starDim.png);
+  background-image: url(./images/accentOff.png);
 }
 
 .entry_edit_btn {
@@ -360,21 +356,26 @@ p.entry_content {
   background-image: url(./images/archRemove.png);
 }
 
-div.accent .entry_star_btn {
-  background-image: url(./images/starBright.png);
+.entry.accent .entry_star_btn {
+  background-image: url(./images/accentOn.png);
   filter: drop-shadow(0px 0px 5px rgba(239, 237, 214, 0.735));
   opacity: 1;
 }
 
-.hide, div.archived .entry_star_btn, div.archived .entry_edit_btn {
+.hide,
+.entry.archived .entry_star_btn,
+.entry.archived .entry_edit_btn,
+.entry.restore .entry_star_btn,
+.entry.restore .entry_edit_btn{
   display: none;
 }
 
-div.archived .entry_archive_btn {
+.entry.archived .entry_archive_btn,
+.entry.restore .entry_archive_btn {
   background-image: url(./images/archRestore.png);
   opacity: 0.2;
 }
 
-div.archived .entry_archive_btn:hover {
+.entry.archived .entry_archive_btn:hover {
   opacity: 0.7;
 }
