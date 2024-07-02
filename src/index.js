@@ -13,31 +13,41 @@ const toggleBlur = element => element.classList.toggle('blur');
 const toggleOpacity = element => element.style.opacity = Math.abs(element.style.opacity - 1);
 const removeElement = element => element.remove();
 
-function chooseFilter(element) {
-	switch (true) {
-	case element.classList.contains('active'):
-		return viewActive;
-		break;
-	case element.id.includes('archive'):
-		return viewArchived;
-		break;
-	case element.id.includes('accent'):
-		return viewAccented;
-		break;
-	}
-}
-
 // ADMINISTRATIVE FUNCTIONS
+
+// click listener
+
+function activateListeners() {
+	document.addEventListener('click', event => {
+		if (event.target.matches('#new_entry_btn')) {
+			openEntryForm(event);
+			const titleField = document.getElementById('entry_form_title');
+			titleField.focus();
+		} else if (event.target.matches('#view_archived_btn') || event.target.matches('#view_accented_btn')) {
+			handleJrnlFilter(event);
+		};
+	});
+};
 
 // populating and filtering the entry stack
 
 function renderEntry(entryObj) {
-	const entry = new jrnlEntry(entryObj).render();
+	const entry = new JrnlEntry(entryObj).render();
 	const entryStack = document.getElementById('entry_stack');
 	entryStack.insertBefore(entry, entryStack.firstChild);
-}
+};
 
-const newDate = () => new Date()
+const newDate = () => new Date();
+
+function chooseFilter(element) {
+	if (element.classList.contains('active')) {
+		return viewActive;
+	} else if (element.id.includes('archive')) {
+		return viewArchived;
+	} else if (element.id.includes('accent')) {
+		return viewAccented;
+	};
+};
 
 function handleJrnlFilter(event) {
 	const control = event.target;
@@ -46,7 +56,7 @@ function handleJrnlFilter(event) {
 	entryStack.innerHTML = '';
 	loadEntries(chooseFilter(control));
 	updateBtnStatus(controlStack, control);
-}
+};
 
 function updateBtnStatus(parentElement, targetElement) {
 	const children = Array.from(parentElement);
@@ -55,44 +65,44 @@ function updateBtnStatus(parentElement, targetElement) {
 		activeElement.classList.remove('active');
 	};
 	targetElement.classList.toggle('active');
-}
+};
 
 // entry form mechanics
 
 function toggleBgBlur() {
 	const blurNodes = document.querySelectorAll('.filter_node');
 	blurNodes.forEach(toggleBlur);
-}
+};
 
 function openEntryForm(event, entryId = null) {
 	toggleBgBlur();
-	const form = new jrnlEntryForm(event, entryId).render();
+	const form = new JrnlEntryForm(event, entryId).render();
 	document.body.append(form);
 	document.addEventListener('keydown', handleEscKey);
-	setTimeout(toggleOpacity(form), 50);
-}
+	setTimeout(() => toggleOpacity(form), 50);
+};
 
 function closeEntryForm() {
 	const form = document.getElementById('entry_form_container');
 	toggleOpacity(form);
 	toggleBgBlur();
 	document.removeEventListener('keydown', handleEscKey);
-	setTimeout(removeElement(form), 500);
-}
+	setTimeout(() => removeElement(form), 500);
+};
 
 function showError() {
 	const contStack = document.getElementById('entry_form_container');
 	const error = new ErrorCallout();
 	contStack.append(error.render());
 	const errCallout = document.getElementById('error_callout');
-	setTimeout(toggleOpacity(errCallout), 50);
-}
+	setTimeout(() => toggleOpacity(errCallout), 50);
+};
 
 function removeError() {
 	const errCallout = document.getElementById('error_callout');
 	toggleOpacity(errCallout);
-	setTimeout(removeElement(errCallout), 500);
-}
+	setTimeout(() => removeElement(errCallout), 500);
+};
 
 // entry form publishing
 
@@ -105,25 +115,26 @@ function handlePublishReq() {
 			setTimeout(removeError, 3500);
 			break;
 		case false:
-			const entry = new jrnlObj(title, formatContent(content));
+			const entry = new JrnlObj(title, formatContent(content));
 			pushEntry(entry);
 			closeEntryForm();
 			break;
-	}
-}
+	};
+};
 
 function handlePublishEditReq(entryId) {
 	const title = document.getElementById('entry_form_title').value;
 	const content = formatContent(document.getElementById('entry_form_content').value);
 	const updArr = [['id', entryId], ['title', title], ['content', content]];
-	pushUpdate(new updateObj(updArr));
+	const update = new JrnlUpdate(updArr);
+	pushUpdate(update);
 	const entry = document.getElementById(entryId);
 	entry.querySelector('.entry_title').textContent = title;
 	entry.querySelector('.entry_content').innerHTML = content;
 	closeEntryForm();
 	entry.classList.add('highlight')
 	setTimeout(() => entry.classList.remove('highlight'), 200);
-}
+};
 
 // text formatting
 
@@ -132,24 +143,22 @@ function formatContent(content) {
 	const modBodyArr = [];
 	contentArr.forEach(element => modBodyArr.push(formatParagraph(element)))
 	const modBodyStr = modBodyArr.join('');
+
 	return modBodyStr;
-}
+};
 
 function formatParagraph(paragraph) {
 	switch (true) {
 		case paragraph.includes('\t'):
 			return `<p class="entry_content indent">${paragraph.replace(/\t/g, '')}</p>`;
-			break;
 		case paragraph[0] === '-':
 			return `<p class="entry_content indent">${paragraph.replace('-', '')}</p>`;
-			break;
 		case paragraph === '':
 			break;
 		default:
 			return `<p class="entry_content noIndent">${paragraph}</p>`;
-			break;
-	}
-}
+	};
+};
 
 function formatTs(ts) {
 	const tsDate = new Date(ts);
@@ -160,13 +169,13 @@ function formatTs(ts) {
 	const tsMin = String(tsDate.getMinutes()).padStart(2, '0');
 
 	return `${tsYear} / ${tsMon} / ${tsDay} @ ${tsHour}:${tsMin}`;
-}
+};
 
 // class list manipulation
 
 function classListAppend(elementArr, className) {
 	elementArr.forEach(element => element.classList.add(className))
-}
+};
 
 // SERVER INTERACTION FUNCTIONS
 
@@ -177,7 +186,7 @@ function loadEntries(filterFunction = viewActive) {
 		return res.json();
 	})
 	.then(jrnlData => jrnlData.filter(filterFunction).forEach(entry => renderEntry(entry)))
-	.catch(error => console.erroor(`We got issues: ${error}`))
+	.catch(error => console.error(`We got issues: ${error}`))
 };
 
 function pushEntry(entryObj) {
@@ -194,7 +203,7 @@ function pushEntry(entryObj) {
 		return res.json();
 	})
 	.then(jrnlEntry => renderEntry(jrnlEntry))
-	.catch(error => console.erroor(`We got issues: ${error}`))
+	.catch(error => console.error(`We got issues: ${error}`))
 };
 
 function pushUpdate(updateObj) {
@@ -211,12 +220,12 @@ function pushUpdate(updateObj) {
 		return res.json();
 	})
 	.then(jrnlEntry => console.log(jrnlEntry))
-	.catch(error => console.erroor(`We got issues: ${error}`))
+	.catch(error => console.error(`We got issues: ${error}`))
 };
 
 // CLASSES
 
-class jrnlObj {
+class JrnlObj {
 	constructor(title, content) {
 		this.title = title;
 		this.content = content;
@@ -224,17 +233,17 @@ class jrnlObj {
 		this.isAccent = false;
 		this.isArch = false;
 		this.updLog = {};
-	}
-}
+	};
+};
 
-class updateObj {
+class JrnlUpdate {
 	constructor(updArr) {
 		updArr.forEach(element => this[element[0]] = element[1]);
 		this.lupdTs = newDate();
-	}
-}
+	};
+};
 
-class jrnlEntry {
+class JrnlEntry {
 	constructor({id, title, content, pubTs, isAccent, isArch}) {
 
 		// build entry container
@@ -270,34 +279,24 @@ class jrnlEntry {
 		this.pubTs.className = `entry_publish_ts`;
 		this.pubTs.innerText = formatTs(pubTs);
 
-		// build archive button
-		
-		this.archBtn = document.createElement('div');
-		this.archBtn.id = `entry_archive_btn_${id}`;
-		this.archBtn.className = 'entry_archive_btn';
-		this.archBtn.title = !isArch ? 'Archive this entry' : 'Restore this entry';
-		this.archBtn.addEventListener('click', () => {
-			const updArr = [['id', entryId], ['isArch', !isArch]];
+		// build buttons
+
+		this.archBtn = this.createActionButton('entry_archive_btn', id, !isArch ? 'Archive this entry' : 'Restore this entry', () => {
+			const updArr = [['id', id], ['isArch', !isArch]];
 			if (!isArch) updArr.push(['isAccent', false]);
-			const archUpdate = new updateObj(updArr);
+			const archUpdate = new JrnlUpdate(updArr);
 			pushUpdate(archUpdate);
 			const thisEntry = document.getElementById(this.entry.id);
 			if (!isArch) {
 				thisEntry.classList.add('remove');
 			} else {
 				thisEntry.classList.replace('archived', 'restore');
-			};
-			setTimeout(toggleOpacity(thisEntry), 100);
-			setTimeout(removeElement(thisEntry), 300);
+			}
+			setTimeout(() => toggleOpacity(thisEntry), 100);
+			setTimeout(() => removeElement(thisEntry), 300);
 		});
 
-		// build edit button
-
-		this.editBtn = document.createElement('div');
-		this.editBtn.id = `entry_edit_btn_${id}`;
-		this.editBtn.className = 'entry_edit_btn';
-		this.editBtn.title = 'Edit this entry';
-		this.editBtn.addEventListener('click', (event) => {
+		this.editBtn = this.createActionButton('entry_edit_btn', id, 'Edit this entry', event => {
 			openEntryForm(event, this.entry.id);
 			const titleField = document.getElementById('entry_form_title');
 			const contentField = document.getElementById('entry_form_content');
@@ -307,23 +306,15 @@ class jrnlEntry {
 			contentField.focus();
 		});
 
-		// build accent button
-
-		this.starBtn = document.createElement('div');
-		this.starBtn.id = `entry_star_btn_${id}`;
-		this.starBtn.className = 'entry_star_btn';
-		this.starBtn.title = !isAccent ? 'Accent this entry' : 'Remove accent from entry';
-		this.starBtn.addEventListener('click', () => {
-			const updArr = [['id', entryId], ['isAccent', !isAccent]];
-			const accUpdate = new updateObj(updArr);
+		this.accentBtn = this.createActionButton('entry_star_btn', id, !isAccent ? 'Accent this entry' : 'Remove accent from entry', () => {
+			const updArr = [['id', id], ['isAccent', !isAccent]];
+			const accUpdate = new JrnlUpdate(updArr);
 			pushUpdate(accUpdate);
 			const targetNode = document.getElementById(this.entry.id);
 			isAccent ? targetNode.classList.remove('accent') : targetNode.classList.add('accent');
 			isAccent = !isAccent;
-			this.starBtn.title = !isAccent ? 'Accent this entry' : 'Remove accent from entry';
+			this.accentBtn.title = !isAccent ? 'Accent this entry' : 'Remove accent from entry';
 		});
-
-		classListAppend([this.archBtn, this.editBtn, this.starBtn], 'entry_action_btn'),
 
 		// build entry content element
 
@@ -331,27 +322,35 @@ class jrnlEntry {
 		this.content.className = `entry_content`;
 		this.content.innerHTML = content;
 
-		classListAppend([this.entry, this.head, this.headText, this.headActions, this.title, this.pubTs, this.archBtn, this.editBtn, this.starBtn, this.content], id)
-
 		// assemble entry
 
 		this.headText.append(this.title);
 		this.headText.append(this.pubTs);
 		this.headActions.append(this.archBtn);
 		this.headActions.append(this.editBtn);
-		this.headActions.append(this.starBtn);
+		this.headActions.append(this.accentBtn);
 		this.head.append(this.headText);
 		this.head.append(this.headActions);
 		this.entry.append(this.head);
 		this.entry.append(this.content);
-	}
+	};
+
+	createActionButton(className, id, title, action) {
+		const btn = document.createElement('div');
+		btn.id = `${className}_${id}`;
+		btn.className = className;
+		btn.classList.add(className, 'entry_action_btn')
+		btn.title = title;
+		btn.addEventListener('click', action);
+		return btn;
+	};
 
 	render() {
 		return this.entry;
-	}
-}
+	};
+};
 
-class jrnlEntryForm {
+class JrnlEntryForm {
 	constructor(event, entryId) {
 
 		// define the form action and product
@@ -391,7 +390,7 @@ class jrnlEntryForm {
 				break;
 			case 'edit':
 				this.publishEntryBtn.addEventListener('click', () => handlePublishEditReq(entryId));
-		}
+		};
 
 		// build entry input section
 
@@ -430,13 +429,13 @@ class jrnlEntryForm {
 				case event.ctrlKey && event.key === 'Enter' && !newEntry:
 					handlePublishEditReq(entryId);
 					break;
-			}
-		})
-	}
+			};
+		});
+	};
 	render() {
 		return this.entryForm;
-	}
-}
+	};
+};
 
 class ErrorCallout {
 	constructor() {
@@ -456,26 +455,12 @@ class ErrorCallout {
 		// assemble error
 
 		this.error.append(this.text);
-	}
+	};
 
 	render() {
 		return this.error;
-	}
-}
-
-function activateListeners() {
-	const newEntryBtn = document.getElementById('new_entry_btn');
-	const showArchivedBtn = document.getElementById('view_archived_btn');
-	const showAccentedBtn = document.getElementById('view_accented_btn');
-
-	newEntryBtn.addEventListener('click', event => {
-		openEntryForm(event);
-		const titleField = document.getElementById('entry_form_title');
-		titleField.focus();
-	});
-	showArchivedBtn.addEventListener('click', event => handleJrnlFilter(event));
-	showAccentedBtn.addEventListener('click', event => handleJrnlFilter(event));
-}
+	};
+};
 
 // INITIALIZATION FUNCTION AND DOM CONTENT LISTENER
 
