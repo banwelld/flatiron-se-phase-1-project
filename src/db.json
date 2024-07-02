@@ -769,10 +769,10 @@
       "title": "New Entry",
       "content": "<p class=\"entry_content noIndent\">Let's see if this persists.</p>",
       "pubTs": "2024-06-23T19:44:49.517Z",
-      "isAccent": true,
-      "isArch": false,
+      "isAccent": false,
+      "isArch": true,
       "updLog": {},
-      "lupdTs": "2024-06-24T00:48:18.638Z"
+      "lupdTs": "2024-07-01T19:46:57.288Z"
     },
     {
       "id": "c05b",
@@ -780,19 +780,49 @@
       "content": "<p class=\"entry_content noIndent\">What the actual???</p><p class=\"entry_content noIndent\">I have no idea what's going on. I should not have fucked with my JSON file.</p>",
       "pubTs": "2024-06-23T20:02:13.101Z",
       "isAccent": false,
-      "isArch": true,
+      "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-23T20:03:02.119Z"
+      "lupdTs": "2024-07-01T19:47:12.605Z"
     },
     {
       "id": "bfd9",
       "title": "Here's an entry",
       "content": "<p class=\"entry_content noIndent\">This is the content of an entry.</p>",
       "pubTs": "2024-06-23T21:11:06.419Z",
-      "isAccent": false,
-      "isArch": true,
+      "isAccent": true,
+      "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-24T00:40:00.884Z"
+      "lupdTs": "2024-07-02T04:21:16.002Z"
+    },
+    {
+      "title": "Canada Day 2024",
+      "content": "<p class=\"entry_content noIndent\">Sitting at home and coding. This really is my happy place, right now. </p>",
+      "pubTs": "2024-07-01T19:49:09.663Z",
+      "isAccent": true,
+      "isArch": false,
+      "updLog": {},
+      "id": "Wg1UkrU",
+      "lupdTs": "2024-07-02T05:44:33.884Z"
+    },
+    {
+      "title": "New Entry",
+      "content": "<p class=\"entry_content noIndent\">Just seeing if the date changes took hold.</p>",
+      "pubTs": "2024-07-02T03:55:42.441Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "id": "JATfbuq",
+      "lupdTs": "2024-07-02T04:21:24.784Z"
+    },
+    {
+      "title": "This is a new entry ",
+      "content": "<p class=\"entry_content noIndent\">New Entry New Entry</p>",
+      "pubTs": "2024-07-02T07:01:13.471Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "id": "LK7rr1H",
+      "lupdTs": "2024-07-02T07:08:21.716Z"
     }
   ]
 }
