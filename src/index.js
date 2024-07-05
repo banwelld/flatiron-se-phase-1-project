@@ -1,12 +1,33 @@
+/*
+Dave Banwell Phase One Project
+
+REQUIRED CODE ELEMENT LOCATIONS:
+
+Server interactions:
+line 24: Server path variable assigned
+Line 196 - 239: fetch request functions
+All journal entries persist to the db.json file via post/patch requests
+
+Event listeners:
+line 42, 329, 469: click listeners
+line 102, 441: key listener
+line 519: DOM content listener
+
+Array iteration methods:
+line 95, 169, 191, 203, 256: .forEach
+line 83: .find
+line 199: .filter
+*/
+
 // SERVER PATH
 
 const serverPath = 'http://localhost:3000/journalEntries';
 
 // CALLLBACK FUNCTIONS
 
-const viewActive = entry => !entry.isArch;
-const viewArchived = entry => entry.isArch;
-const viewAccented = entry => entry.isAccent;
+const viewActive = entry => !entry.isArchived;
+const viewArchived = entry => entry.isArchived;
+const viewAccented = entry => entry.isAccented;
 const handleEscKey = event => event.key === 'Escape' && closeEntryForm();
 const activeClass = child => child.classList.contains('active');
 const toggleBlur = element => element.classList.toggle('blur');
@@ -51,15 +72,15 @@ function chooseFilter(element) {
 
 function handleJrnlFilter(event) {
 	const control = event.target;
-	const controlStack = event.target.parentNode;
+	const controlStack = event.target.parentElement;
 	const entryStack = document.getElementById('entry_stack');
 	entryStack.innerHTML = '';
 	loadEntries(chooseFilter(control));
-	updateBtnStatus(controlStack, control);
+	updateScreenElements(controlStack, control);
 };
 
-function updateBtnStatus(parentElement, targetElement) {
-	const children = Array.from(parentElement);
+function updateScreenElements(parentElement, targetElement) {
+	const children = Array.from(parentElement.children);
 	const activeElement = children.find(activeClass);
 	if (activeElement && activeElement !== targetElement) {
 		activeElement.classList.remove('active');
@@ -107,8 +128,8 @@ function removeError() {
 // entry form publishing
 
 function handlePublishReq() {
-	const title = document.getElementById('entry_form_title').value;
-	const content = document.getElementById('entry_form_content').value;
+	const title = document.getElementById('entry_form_title').textContent;
+	const content = document.getElementById('entry_form_content').textContent;
 	switch (title === '') {
 		case true:
 			showError();
@@ -123,16 +144,20 @@ function handlePublishReq() {
 };
 
 function handlePublishEditReq(entryId) {
-	const title = document.getElementById('entry_form_title').value;
-	const content = formatContent(document.getElementById('entry_form_content').value);
-	const updArr = [['id', entryId], ['title', title], ['content', content]];
+	const title = document.getElementById('entry_form_title').textContent;
+	const content = formatContent(document.getElementById('entry_form_content').innerText);
+	const updArr = [
+		['id', entryId], 
+		['title', title], 
+		['content', content]
+	];
 	const update = new JrnlUpdate(updArr);
 	pushUpdate(update);
 	const entry = document.getElementById(entryId);
-	entry.querySelector('.entry_title').textContent = title;
+	entry.querySelector('.entry_text_title').innerText = title;
 	entry.querySelector('.entry_content').innerHTML = content;
 	closeEntryForm();
-	entry.classList.add('highlight')
+	entry.classList.add('highlight');
 	setTimeout(() => entry.classList.remove('highlight'), 200);
 };
 
@@ -141,7 +166,7 @@ function handlePublishEditReq(entryId) {
 function formatContent(content) {
 	const contentArr = content.split('\n');
 	const modBodyArr = [];
-	contentArr.forEach(element => modBodyArr.push(formatParagraph(element)))
+	contentArr.forEach(element => modBodyArr.push(formatParagraph(element)));
 	const modBodyStr = modBodyArr.join('');
 
 	return modBodyStr;
@@ -160,32 +185,22 @@ function formatParagraph(paragraph) {
 	};
 };
 
-function formatTs(ts) {
-	const tsDate = new Date(ts);
-	const tsYear = tsDate.getFullYear();
-	const tsMon = String(tsDate.getMonth() + 1).padStart(2, '0');
-	const tsDay = String(tsDate.getDate()).padStart(2, '0');
-	const tsHour = String(tsDate.getHours()).padStart(2, '0');
-	const tsMin = String(tsDate.getMinutes()).padStart(2, '0');
-
-	return `${tsYear} / ${tsMon} / ${tsDay} @ ${tsHour}:${tsMin}`;
-};
-
 // class list manipulation
 
 function classListAppend(elementArr, className) {
-	elementArr.forEach(element => element.classList.add(className))
+	elementArr.forEach(element => element.classList.add(className));
 };
 
 // SERVER INTERACTION FUNCTIONS
 
-function loadEntries(filterFunction = viewActive) {
+function loadEntries(viewFilter = viewActive) {
 	fetch(serverPath)
 	.then(res => {
 		if (!res.ok) throw new Error(`We got issues: ${res.responseText}`);
 		return res.json();
 	})
-	.then(jrnlData => jrnlData.filter(filterFunction).forEach(entry => renderEntry(entry)))
+	.then(jrnlData => jrnlData.filter(viewFilter))
+	.then(jrnlData => jrnlData.forEach(entry => renderEntry(entry)))
 	.catch(error => console.error(`We got issues: ${error}`))
 };
 
@@ -230,8 +245,8 @@ class JrnlObj {
 		this.title = title;
 		this.content = content;
 		this.pubTs = newDate();
-		this.isAccent = false;
-		this.isArch = false;
+		this.isAccented = false;
+		this.isArchived = false;
 		this.updLog = {};
 	};
 };
@@ -244,105 +259,144 @@ class JrnlUpdate {
 };
 
 class JrnlEntry {
-	constructor({id, title, content, pubTs, isAccent, isArch}) {
+	constructor({id, title, content, pubTs, isAccented, isArchived}) {
 
-		// build entry container
+		// set object properties
+		this.id = id;
+		this.elTitle = title;
+		this.elContent = content;
+		this.timestamp = pubTs;
+		this.isAccented = isAccented;
+		this.isArchived = isArchived;
 
-		this.entry = document.createElement('div');
-		this.entry.id = id;
-		this.entry.className = `entry`;
-		if (isAccent) this.entry.classList.add('accent');
-		if (isArch) this.entry.classList.add('archived');
+		// structure for the entry element
+		this.blueprint = {
+			entry: {tag: 'div', parent: 'none'},
+			head: {tag: 'div', parent: 'entry'},
+			text: {tag: 'div', parent: 'head'},
+			title: {tag: 'h2', parent: 'text'},
+			pubTs: {tag: 'p', parent: 'text'},
+			actions: {tag: 'div', parent: 'head'},
+			archiveBtn: {tag: 'div', parent: 'actions'},
+			editBtn: {tag: 'div', parent: 'actions'},
+			accentBtn: {tag: 'div', parent: 'actions'},
+			content: {tag: 'div', parent: 'entry'}
+		};
 
-		// build entry header container
-
-		this.head = document.createElement('div');
-		this.head.className = `entry_header`;
-
-		// build entry header text container
-
-		this.headText = document.createElement('div');
-		this.headText.className = `entry_header_text`;
-
-		// build entry actions container
-
-		this.headActions = document.createElement('div');
-		this.headActions.className = `entry_header_actions`;
-
-		// build entry header text elements
-
-		this.title = document.createElement('h2');
-		this.title.className = `entry_title`;
-		this.title.innerText = title;
-
-		this.pubTs = document.createElement('p');
-		this.pubTs.className = `entry_publish_ts`;
-		this.pubTs.innerText = formatTs(pubTs);
-
-		// build buttons
-
-		this.archBtn = this.createActionButton('entry_archive_btn', id, !isArch ? 'Archive this entry' : 'Restore this entry', () => {
-			const updArr = [['id', id], ['isArch', !isArch]];
-			if (!isArch) updArr.push(['isAccent', false]);
-			const archUpdate = new JrnlUpdate(updArr);
-			pushUpdate(archUpdate);
-			const thisEntry = document.getElementById(this.entry.id);
-			if (!isArch) {
-				thisEntry.classList.add('remove');
-			} else {
-				thisEntry.classList.replace('archived', 'restore');
-			}
-			setTimeout(() => toggleOpacity(thisEntry), 100);
-			setTimeout(() => removeElement(thisEntry), 300);
-		});
-
-		this.editBtn = this.createActionButton('entry_edit_btn', id, 'Edit this entry', event => {
-			openEntryForm(event, this.entry.id);
-			const titleField = document.getElementById('entry_form_title');
-			const contentField = document.getElementById('entry_form_content');
-			const content = document.getElementById(this.entry.id).querySelector('.entry_content').innerText;
-			titleField.value = title;
-			contentField.value = content;
-			contentField.focus();
-		});
-
-		this.accentBtn = this.createActionButton('entry_star_btn', id, !isAccent ? 'Accent this entry' : 'Remove accent from entry', () => {
-			const updArr = [['id', id], ['isAccent', !isAccent]];
-			const accUpdate = new JrnlUpdate(updArr);
-			pushUpdate(accUpdate);
-			const targetNode = document.getElementById(this.entry.id);
-			isAccent ? targetNode.classList.remove('accent') : targetNode.classList.add('accent');
-			isAccent = !isAccent;
-			this.accentBtn.title = !isAccent ? 'Accent this entry' : 'Remove accent from entry';
-		});
-
-		// build entry content element
-
-		this.content = document.createElement('div');
-		this.content.className = `entry_content`;
-		this.content.innerHTML = content;
-
-		// assemble entry
-
-		this.headText.append(this.title);
-		this.headText.append(this.pubTs);
-		this.headActions.append(this.archBtn);
-		this.headActions.append(this.editBtn);
-		this.headActions.append(this.accentBtn);
-		this.head.append(this.headText);
-		this.head.append(this.headActions);
-		this.entry.append(this.head);
-		this.entry.append(this.content);
+		// create elements and assign ids and classes
+		this.createAllElements();
 	};
 
-	createActionButton(className, id, title, action) {
-		const btn = document.createElement('div');
-		btn.id = `${className}_${id}`;
-		btn.className = className;
-		btn.classList.add(className, 'entry_action_btn')
-		btn.title = title;
-		btn.addEventListener('click', action);
-		return btn;
+	createAllElements() {
+		for (const key in this.blueprint) {
+			this.key = key;
+			const {tag, parent} = this.blueprint[key];
+
+			this[key] = document.createElement(tag);
+			
+			if (key === 'entry') {
+				this.buildEntryContainer();
+			} else if (key.includes('Btn')) {
+				this.buildActionBtn();
+				this[parent].append(this[key]);
+			} else {
+				this[key].classList.add(parent === 'entry' ? `${parent}_${key}` : `entry_${parent}_${key}`);
+				if (key === 'title') this[key].innerText = this.elTitle;
+				if (key === 'pubTs') this[key].innerText = this.formatTs();
+				if (key === 'content') this[key].innerHTML = this.elContent;
+				this[parent].append(this[key]);
+			};
+		};
+	};
+
+	// special cases
+	buildEntryContainer() {
+		const entry = this[this.key];
+		entry.id = this.id;
+		entry.classList.add('entry', this.id);
+		if (this.isAccented) entry.classList.add('accent');
+		if (this.isArchived) entry.classList.add('archived');
+	}
+
+	buildActionBtn() {
+		const btn = this[this.key];
+		const action = this.key.substring(0, this.key.length - 3);
+		const frmtAction = action.charAt(0).toUpperCase() + action.slice(1);
+
+		btn.id = `entry_${action}_btn_${this.id}`;
+		btn.classList.add(`entry_${action}_btn`, 'entry_action_btn');
+		btn.title = action === 'archive' ? `Archive/restore this entry` : `${frmtAction} this entry`;
+		btn.addEventListener('click', (event) => this.callbackSelector(action, event));
+	};
+
+	callbackSelector(action, event) {
+		if (action === 'archive') {
+			return this.archiveBtnCallback();
+		} else if (action === 'accent') {
+			return this.accentBtnCallback();
+		} else if (action === 'edit') {
+			return this.editBtnCallback(event);
+		};
+	};
+
+	// button callback functions
+	archiveBtnCallback() {
+		const updArr = [
+			['id', this.id], 
+			['isArchived', !this.isArchived]
+		];
+		
+		if (!this.isArchived) updArr.push(['isAccented', false]);
+		
+		const archUpdate = new JrnlUpdate(updArr);
+		pushUpdate(archUpdate);
+		
+		if (!this.isArchived) {
+			this.entry.classList.add('remove');
+		} else {
+			this.entry.classList.replace('archived', 'restore');
+		};
+
+		setTimeout(() => toggleOpacity(this.entry), 100);
+		setTimeout(() => removeElement(this.entry), 300);
+	};
+
+	editBtnCallback(event) {
+		openEntryForm(event, this.id);
+		const titleField = document.getElementById('entry_form_title');
+		const contentField = document.getElementById('entry_form_content');
+		const entryText = this.entry.querySelector('.entry_content').innerText;
+		
+		titleField.textContent = this.elTitle;
+		contentField.innerText = entryText;
+		
+		contentField.focus();
+	};
+
+	accentBtnCallback() {
+		const updArr = [
+			['id', this.id],
+			['isAccented', !this.isAccented]
+		];
+
+		const accUpdate = new JrnlUpdate(updArr);
+		pushUpdate(accUpdate);
+		
+		const targetNode = document.getElementById(this.id);
+		this.isAccented ? targetNode.classList.remove('accent') : targetNode.classList.add('accent');
+		this.isAccented = !this.isAccented;
+		this[this.key].title = !this.isAccented ? 'Accent this entry' : 'Remove accent from entry';
+	};
+
+	// timestamp formatting
+	formatTs() {
+		const tsDate = new Date(this.timestamp);
+		const tsYear = tsDate.getFullYear();
+		const tsMon = String(tsDate.getMonth() + 1).padStart(2, '0');
+		const tsDay = String(tsDate.getDate()).padStart(2, '0');
+		const tsHour = String(tsDate.getHours()).padStart(2, '0');
+		const tsMin = String(tsDate.getMinutes()).padStart(2, '0');
+		return `${tsYear} / ${tsMon} / ${tsDay} @ ${tsHour}:${tsMin}`;
 	};
 
 	render() {
@@ -350,90 +404,81 @@ class JrnlEntry {
 	};
 };
 
+
 class JrnlEntryForm {
 	constructor(event, entryId) {
 
-		// define the form action and product
+		// Set object properties
+		this.id = entryId;
+		this.newEntry = !event.target.id.includes('edit');
+		this.formAction = this.newEntry ? 'create' : 'edit';
+		this.formProduct = this.newEntry ? 'entry' : 'changes';
 
-		const newEntry = !event.target.id.includes('edit');
-		const formAction = newEntry ? 'create' : 'edit';
-		const formProduct = newEntry ? 'entry' : 'changes';
-
-		// build entry form container
-
-		this.entryForm = document.createElement('div');
-		this.entryForm.id = 'entry_form_container';
-	
-		// build entry form control stack
-
-		this.contStack = document.createElement('div');
-		this.contStack.className = 'control_stack form';
-		this.contStack.id = 'control_stack form';
-
-		// build discard button
-
-		this.discardEntryBtn = document.createElement('div');
-		this.discardEntryBtn.className = 'control form';
-		this.discardEntryBtn.id = `form_discard_btn`;
-		this.discardEntryBtn.title = `Discard ${formProduct} ( <esc> )`;
-		this.discardEntryBtn.addEventListener('click', closeEntryForm);
-	
-		// build publish button
-
-		this.publishEntryBtn = document.createElement('div');
-		this.publishEntryBtn.id = 'form_publish_btn'
-		this.publishEntryBtn.className = 'control form';
-		this.publishEntryBtn.title = `Publish ${formProduct} ( <ctrl> + <enter> )`;
-		switch (formAction) {
-			case 'create':
-				this.publishEntryBtn.addEventListener('click', handlePublishReq);
-				break;
-			case 'edit':
-				this.publishEntryBtn.addEventListener('click', () => handlePublishEditReq(entryId));
+		// Structure for the builder function
+		this.blueprint = {
+			entry_form: { parent: 'none' },
+			control_stack: { parent: 'entry_form' },
+			input: { parent: 'entry_form' },
+			discardBtn: { parent: 'control_stack' },
+			publishBtn: { parent: 'control_stack' },
+			title: { parent: 'input' },
+			content: { parent: 'input' }
 		};
 
-		// build entry input section
+		// Create elements and assign IDs and classes
+		this.createAllElements();
+	}
 
-		this.inputContainer = document.createElement('div');
-		this.inputContainer.className = 'entry_input';
-	
-		// build entry title input
+	createAllElements() {
+		for (const key in this.blueprint) {
+			const parent = this.blueprint[key].parent;
+			this.key = key;
 
-		this.entryTitle = document.createElement('input');
-		this.entryTitle.type = 'text';
-		this.entryTitle.id = 'entry_form_title';
-		this.entryTitle.placeholder = 'Type journal title here...';
+			this[key] = document.createElement('div');
 
-		// build entry content textarea
-
-		this.entryContent = document.createElement('textarea');
-		this.entryContent.id = 'entry_form_content';
-		this.entryContent.placeholder = 'Type journal entry here...';
-		
-		// assemble entry form
-
-		this.inputContainer.append(this.entryTitle);
-		this.inputContainer.append(this.entryContent);
-		this.contStack.append(this.publishEntryBtn);
-		this.contStack.append(this.discardEntryBtn);
-		this.entryForm.append(this.contStack);
-		this.entryForm.append(this.inputContainer);
-
-		// add form event listeners
-
-		this.entryForm.addEventListener('keydown', event => {
-			switch (true) {
-				case event.ctrlKey && event.key === 'Enter' && newEntry:
-					handlePublishReq();
-					break;
-				case event.ctrlKey && event.key === 'Enter' && !newEntry:
-					handlePublishEditReq(entryId);
-					break;
+			if (key === 'entry_form') {
+				this[key].id = `${key}_container`;
+				this[key].addEventListener('keydown', event => {
+					if (event.ctrlKey && event.key === 'Enter' && this.newEntry) handlePublishReq();
+					if (event.ctrlKey && event.key === 'Enter' && !this.newEntry) handlePublishEditReq(this.id);
+				});
+			} else if (key.includes('Btn')) {
+				this.buildActionBtn();
+				this[parent].append(this[key]);
+			} else {
+				this[key].className = key === 'control_stack' ? 'control_stack form' : `entry_form_${key}`;
+				if (key === 'control_stack') this[key].id = key;
+				if (parent === 'input') {
+					this[key].contentEditable = true;
+					this[key].id = `entry_form_${key}`;
+				};
+				this[parent].append(this[key]);
 			};
-		});
+		};
 	};
+
+	// Build action buttons
+	buildActionBtn() {
+		const btn = this[this.key];
+		const btnAction = this.key.substring(0, this.key.length - 3);
+		const frmtAction = btnAction.charAt(0).toUpperCase() + btnAction.slice(1);
+
+		btn.className = 'control form';
+		btn.id = `form_${btnAction}_btn`;
+		btn.title = `${frmtAction} ${this.formProduct} (${btnAction === 'discard' ? '<esc>' : '<ctrl> + <enter>'})`;
+		btn.addEventListener('click', this.callbackSelector(btnAction));
+	};
+
+	callbackSelector(btnAction) {
+		if (btnAction === 'discard') {
+			return closeEntryForm;
+		} else if (btnAction === 'publish') {
+			return this.formAction === 'create' ? handlePublishReq : () => handlePublishEditReq(this.id);
+		};
+	};
+
 	render() {
-		return this.entryForm;
+		return this.entry_form;
 	};
 };
 
@@ -451,8 +496,6 @@ class ErrorCallout {
 		this.text = document.createElement('div');
 		this.text.id = 'error_message';
 		this.text.textContent = 'Journal entries must have a title. Please enter a title before trying to publish your entry.';
-	
-		// assemble error
 
 		this.error.append(this.text);
 	};

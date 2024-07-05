@@ -18,7 +18,8 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T01:52:12.739Z"
+      "lupdTs": "2024-07-03T06:54:24.084Z",
+      "isAccented": true
     },
     {
       "id": "0f3d",
@@ -278,7 +279,8 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-21T01:51:57.715Z"
+      "lupdTs": "2024-07-03T06:54:21.917Z",
+      "isAccented": true
     },
     {
       "id": "a173",
@@ -553,7 +555,8 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-22T20:43:03.585Z"
+      "lupdTs": "2024-07-03T07:26:43.058Z",
+      "isAccented": true
     },
     {
       "id": "1192",
@@ -613,7 +616,9 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-22T20:42:58.583Z"
+      "lupdTs": "2024-07-05T20:00:06.680Z",
+      "isArchived": true,
+      "isAccented": false
     },
     {
       "id": "d3c7",
@@ -623,7 +628,9 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-22T20:42:57.866Z"
+      "lupdTs": "2024-07-05T20:00:08.631Z",
+      "isArchived": true,
+      "isAccented": false
     },
     {
       "id": "bfb7",
@@ -712,7 +719,9 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-23T18:15:18.694Z"
+      "lupdTs": "2024-07-03T06:55:02.194Z",
+      "isArchived": true,
+      "isAccented": false
     },
     {
       "id": "b115",
@@ -742,7 +751,9 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-23T19:44:00.543Z"
+      "lupdTs": "2024-07-03T06:54:58.638Z",
+      "isArchived": true,
+      "isAccented": false
     },
     {
       "id": "aa6d",
@@ -752,7 +763,8 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-23T19:43:51.393Z"
+      "lupdTs": "2024-07-04T00:26:02.649Z",
+      "isAccented": true
     },
     {
       "id": "add5",
@@ -762,7 +774,9 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-06-23T21:09:30.836Z"
+      "lupdTs": "2024-07-03T04:05:19.515Z",
+      "isAccented": false,
+      "isArchived": true
     },
     {
       "id": "ea78",
@@ -772,7 +786,9 @@
       "isAccent": false,
       "isArch": true,
       "updLog": {},
-      "lupdTs": "2024-07-01T19:46:57.288Z"
+      "lupdTs": "2024-07-03T06:54:56.823Z",
+      "isArchived": true,
+      "isAccented": false
     },
     {
       "id": "c05b",
@@ -782,7 +798,9 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-07-01T19:47:12.605Z"
+      "lupdTs": "2024-07-03T03:06:51.379Z",
+      "isArchived": true,
+      "isAccented": false
     },
     {
       "id": "bfd9",
@@ -792,17 +810,21 @@
       "isAccent": true,
       "isArch": false,
       "updLog": {},
-      "lupdTs": "2024-07-02T04:21:16.002Z"
+      "lupdTs": "2024-07-03T03:06:50.750Z",
+      "isArchived": true,
+      "isAccented": false
     },
     {
       "title": "Canada Day 2024",
       "content": "<p class=\"entry_content noIndent\">Sitting at home and coding. This really is my happy place, right now. </p>",
       "pubTs": "2024-07-01T19:49:09.663Z",
-      "isAccent": true,
-      "isArch": false,
+      "isAccent": false,
+      "isArch": true,
       "updLog": {},
       "id": "Wg1UkrU",
-      "lupdTs": "2024-07-02T05:44:33.884Z"
+      "lupdTs": "2024-07-03T04:05:39.034Z",
+      "isArchived": false,
+      "isAccented": false
     },
     {
       "title": "New Entry",
@@ -812,17 +834,21 @@
       "isArch": false,
       "updLog": {},
       "id": "JATfbuq",
-      "lupdTs": "2024-07-02T04:21:24.784Z"
+      "lupdTs": "2024-07-03T05:25:08.684Z",
+      "isArchived": false,
+      "isAccented": false
     },
     {
       "title": "This is a new entry ",
       "content": "<p class=\"entry_content noIndent\">New Entry New Entry</p>",
       "pubTs": "2024-07-02T07:01:13.471Z",
       "isAccent": false,
-      "isArch": false,
+      "isArch": true,
       "updLog": {},
       "id": "LK7rr1H",
-      "lupdTs": "2024-07-02T07:08:21.716Z"
+      "lupdTs": "2024-07-03T07:45:12.782Z",
+      "isArchived": false,
+      "isAccented": true
     },
     {
       "title": "New Entry",
@@ -831,7 +857,105 @@
       "isAccent": false,
       "isArch": false,
       "updLog": {},
-      "id": "i_KTvrr"
+      "id": "i_KTvrr",
+      "isArchived": true,
+      "isAccented": false,
+      "lupdTs": "2024-07-03T06:54:54.552Z"
+    },
+    {
+      "title": "osigafjlksjadnvlaksjbn",
+      "content": "<p class=\"entry_content noIndent\">I think this has it. There shouldn't be too much that would prevent this from working.</p>",
+      "pubTs": "2024-07-02T09:47:53.233Z",
+      "isAccent": false,
+      "isArch": false,
+      "updLog": {},
+      "id": "si88hWo",
+      "isArchived": true,
+      "isAccented": false,
+      "lupdTs": "2024-07-03T07:06:25.964Z"
+    },
+    {
+      "title": "This is a new journal entry",
+      "content": "<p class=\"entry_content noIndent\">I am writing a new journal entry</p><p class=\"entry_content noIndent\">Now I am editing the journal entry.</p><p class=\"entry_content noIndent\">Fuck!!</p>",
+      "pubTs": "2024-07-03T04:11:08.217Z",
+      "isAccented": false,
+      "isArchived": true,
+      "updLog": {},
+      "id": "OfwAc9n",
+      "lupdTs": "2024-07-03T06:54:52.778Z"
+    },
+    {
+      "title": "Date test",
+      "content": "<p class=\"entry_content noIndent\">Just seeing if the date is saving properly.</p>",
+      "pubTs": "2024-07-03T05:29:18.239Z",
+      "isAccented": false,
+      "isArchived": false,
+      "updLog": {},
+      "id": "-E79V7u",
+      "lupdTs": "2024-07-05T20:00:01.484Z"
+    },
+    {
+      "title": "Does a new entry work?",
+      "content": "<p class=\"entry_content noIndent\">I don't know, but we'll see shortly.</p>",
+      "pubTs": "2024-07-03T07:03:13.365Z",
+      "isAccented": false,
+      "isArchived": false,
+      "updLog": {},
+      "id": "KSumcSB",
+      "lupdTs": "2024-07-05T20:36:37.376Z"
+    },
+    {
+      "title": "Let's see how it looks on a smallish screen",
+      "content": "<p class=\"entry_content noIndent\">Yeah, it still looks pretty good, overall.</p>",
+      "pubTs": "2024-07-03T07:26:15.760Z",
+      "isAccented": true,
+      "isArchived": false,
+      "updLog": {},
+      "id": "jRP0WTD",
+      "updLog.Fri Jul 05 2024 16:15:44 GMT-0400 (Eastern Daylight Time)": "de-accent",
+      "lupdTs": "2024-07-05T20:15:44.554Z"
+    },
+    {
+      "title": "The best is yet to come",
+      "content": "<p class=\"entry_content noIndent\">This is a new journal entry about something good on the horizon.</p>",
+      "pubTs": "2024-07-03T22:26:35.980Z",
+      "isAccented": false,
+      "isArchived": true,
+      "updLog": {},
+      "id": "7jWvtF9",
+      "lupdTs": "2024-07-05T03:50:11.534Z"
+    },
+    {
+      "title": "Let's see if the publish actions still work",
+      "content": "<p class=\"entry_content noIndent\">Here is my newest entry. I'm trying to gauge whether or not all the functionality is working.</p>",
+      "pubTs": "2024-07-05T07:20:51.105Z",
+      "isAccented": false,
+      "isArchived": true,
+      "updLog": {},
+      "id": "47N2eUy",
+
+      "lupdTs": "2024-07-05T20:35:54.033Z",
+
+    },
+    {
+      "title": "Do the buttons work",
+      "content": "<p class=\"entry_content noIndent\">We'll see shortly!</p><p class=\"entry_content noIndent\">We sure will!!</p>",
+      "pubTs": "2024-07-05T07:21:33.233Z",
+      "isAccented": false,
+      "isArchived": false,
+      "updLog": {},
+      "id": "Ypw74oU",
+      "lupdTs": "2024-07-05T20:54:33.323Z"
+    },
+    {
+      "title": "This is a new journal entry",
+      "content": "<p class=\"entry_content noIndent\">sopirghpoweir hpo[i upoweri rhpotiew hrpoit hjtgpoeqwi rhjjpoigjqhw erpoitpoqewrijh tpoqie jrjtpoqei jrpotiwjerpotijwepori jpoiwejrpotiw jepoei rjtpo wiejpor ei</p>",
+      "pubTs": "2024-07-05T20:35:12.045Z",
+      "isAccented": false,
+      "isArchived": false,
+      "updLog": {},
+      "id": "78k9ckW",
+      "lupdTs": "2024-07-05T20:35:47.936Z"
     }
   ]
 }
